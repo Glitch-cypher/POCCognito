@@ -8,7 +8,7 @@ export default function ForgotPassword() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const [checked,setChecked] = useState(true);
   const [error, setError] = useState("");
 
   const getUser = () => {
@@ -51,6 +51,9 @@ export default function ForgotPassword() {
       },
     });
   };
+  function passwordToggle() {
+    setChecked(!checked);
+}
 
   return (
     <div>
@@ -73,14 +76,17 @@ export default function ForgotPassword() {
           />
           <input
             value={password}
+            type = {checked? 'password':'text'}
             placeholder='New Password'
             onChange={(event) => setPassword(event.target.value)}
           />
           <input
             value={confirmPassword}
+            type = {checked? 'password':'text'}
             placeholder='Confirm New Password'
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
+           <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/>
           <button type="submit">Change passworde</button>
         </form>
       )}
