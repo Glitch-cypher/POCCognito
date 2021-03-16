@@ -37,7 +37,7 @@ export default function Login() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <input type = 'checkbox' checked = {checked} onClick = {()=>passwordToggle()}/>
+        <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/>
         <button type="submit">Login</button>
       </form>
     </div>

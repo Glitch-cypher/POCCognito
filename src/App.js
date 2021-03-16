@@ -3,6 +3,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Account } from "./components/Accounts";
 import Status from "./components/Status";
+import ForgotPassword from './components/FotgotPassword'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Status />
       <Signup />
       <Login />
+      <ForgotPassword/>
     </Account>
   );
 }

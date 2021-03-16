@@ -44,7 +44,7 @@ export default function Signup(){
           value={passwordDup}
           onChange={(event) => setPasswordDup(event.target.value)}
         />
-        <input type = 'checkbox' checked = {checked} onClick = {()=>passwordToggle()}/> 
+        <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/> 
         <button type="submit">Sign Me Up</button>
       </form>
     </div>
