@@ -8,6 +8,7 @@ export default function Signup(){
 
   const onSubmit = (event) => {
     event.preventDefault();
+    //if password === password 
     UserPool.signUp(email, password, [], null, (err, data) => {
       if (err) console.error(err);
       console.log(data);
