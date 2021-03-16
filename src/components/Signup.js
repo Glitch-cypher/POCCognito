@@ -32,16 +32,19 @@ export default function Signup(){
           <p style = {{fontSize: '1em', color: 'red' }}>{err}</p>
         <input
           value={email}
+          placeholder='Email Address'
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
         type = {checked? 'password':'text'}
           value={password}
+          placeholder='Password'
           onChange={(event) => setPassword(event.target.value)}
         />
         <input
         type = {checked? 'password':'text'}
           value={passwordDup}
+          placeholder='Confirm Password'
           onChange={(event) => setPasswordDup(event.target.value)}
         />
         <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/> 
