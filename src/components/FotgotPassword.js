@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CognitoUser } from "amazon-cognito-identity-js";
 import Pool from "../UserPool";
 
+// Function for the user to be able to get a new password
 export default function ForgotPassword() {
   const [stage, setStage] = useState(1);
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ export default function ForgotPassword() {
   const [checked,setChecked] = useState(true);
   const [error, setError] = useState("");
 
+  // function to check if the user is in the system
   const getUser = () => {
     return new CognitoUser({
       Username: email.toLowerCase(),
@@ -18,6 +20,7 @@ export default function ForgotPassword() {
     });
   };
 
+  // Sends out a code to the user if they are in the system and have verified their email
   const sendCode = (event) => {
     event.preventDefault();
     getUser().forgotPassword({
@@ -34,6 +37,7 @@ export default function ForgotPassword() {
     });
   };
 
+  // Changes the users password to the new one they have typed in as long as the passwords match and the code from their email is correct
   const resetPassword = (event) => {
     event.preventDefault();
     setError("");
@@ -51,12 +55,17 @@ export default function ForgotPassword() {
       },
     });
   };
+
+  // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
 }
 
   return (
     <div>
+        {/* displays error messages */}
+        <p>{error}</p>
+        {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
           <input
@@ -67,6 +76,7 @@ export default function ForgotPassword() {
           <button type="submit">Send verification code</button>
         </form>
       )}
+      {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
           <input
