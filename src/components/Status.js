@@ -26,8 +26,7 @@ export default function Status() {
           <div>
               You are logged in.
               
-              <button onClick={logout}>Logout</button>
-              { history.push('/profile')}
+              <button onClick={()=>{logout();  history.push('/profile')}}>Logout</button>
           </div>
       ): 'Please login below.'}
   </div>;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import UserPool from '../UserPool'
 
+import { useHistory } from 'react-router'
+
 export default function Signup(){
   //Here we set empty states for the input fields, err and the visibility of password.
   const [email, setEmail] = useState("");
@@ -8,6 +10,7 @@ export default function Signup(){
   const [passwordDup, setPasswordDup] = useState('');
   const [err,setErr] = useState('');
   const [checked,setChecked] = useState(true);
+  const history = useHistory();
   
 //When the onsubmit button is clocked this function is called. 
   const onSubmit = (event) => {
@@ -16,13 +19,16 @@ export default function Signup(){
     if(passwordDup === password){
       //the userPool takes in 5 arguments and then console.logs if it is successful or not at creating an account. 
         UserPool.signUp(email, password, [], null, (err, data) => {
-            if (err) setErr(err.message);
+            if (err){ setErr(err.message)}else{
+              history.push('/')
+            };
             console.log(data);
         });
     }else{
         setErr('Passwords do not match, please re-enter and try again')
     }
   };
+
 //This function checks the passwords match
   function passwordToggle() {
         setChecked(!checked);
