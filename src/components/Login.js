@@ -31,11 +31,13 @@ export default function Login() {
       <form onSubmit={onSubmit}>
       <p style = {{fontSize: '1em', color: 'red' }}>{err}</p>
         <input
+        id = 'username'
           value={email}
           placeholder='Email Address'
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
+        id = 'password'
         type = {checked? 'password':'text'}
           value={password}
           placeholder='Password'
