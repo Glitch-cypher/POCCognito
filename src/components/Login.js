@@ -8,6 +8,7 @@ export default function Login() {
   const [checked,setChecked] = useState(true);
   const { authenticate } = useContext(AccountContext);
 
+  // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
     setErr('');
@@ -20,6 +21,7 @@ export default function Login() {
       });
   };
 
+  // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
 }
