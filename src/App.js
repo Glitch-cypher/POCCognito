@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import { Account } from "./components/Accounts";
 import Status from "./components/Status";
 import ForgotPassword from './components/FotgotPassword';
+import Profile from './components/Profile'
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +21,8 @@ export default function App() {
             <Link to = '/'>Login</Link>
             <Link to = '/signUp'>Create account</Link>
             <Link to = '/forgotPassword'>Forgot password</Link>
-          </nav>
+            <Link t0 = '/profile'>Profile</Link>
+          </nav><Status />
           <Switch>
             <Route path = '/signUp'>
               <Signup />
@@ -28,8 +30,11 @@ export default function App() {
             <Route path = '/forgotPassword'>
               <ForgotPassword/>
             </Route>
+            <Route path = '/profile'>
+<Profile/>
+            </Route>
             <Route path = '/'>
-              <Status />
+              
               <Login />
             </Route>
           </Switch>

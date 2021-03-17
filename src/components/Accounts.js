@@ -1,6 +1,8 @@
 import React, { createContext } from "react";
 import Pool from "../UserPool";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+
+
 const AccountContext = createContext();
 
 const Account = props => {
@@ -25,11 +27,15 @@ const Account = props => {
         reject();
       }
     });
+
+    //This checks that the user is authenticated.
   const authenticate = async (Username, Password) => 
     await new Promise((resolve, reject) => {
-      const user = new CognitoUser({ Username, Pool });
+     //Here we create a user and the authDetails.
+        const user = new CognitoUser({ Username, Pool });
       const authDetails = new AuthenticationDetails({ Username, Password });
-
+    //We call user.authenticateUser. We have 3 functions, on success when successful, 
+    //on failure if we get an error. or new password needed.
       user.authenticateUser(authDetails, {
         onSuccess: (data) => {
           console.log("onSuccess", data);
@@ -47,6 +53,7 @@ const Account = props => {
         },
       });
     });
+    //This creates the functionality for a user to log out. (if they do not logout they will stay signed in.)
     const logout = () => {
         const user = Pool.getCurrentUser();
         if (user) {

@@ -9,11 +9,13 @@ describe('My Login application', () => {
     });
     it('should go to Yopmail and check the email has been sent', () => {
         browser.url('http://www.yopmail.com/en/')
-        const emailInput = $("#login")
-        const checkInboxButton = $(".sbut")
-        // console.log(emailInput.value)
+        const emailInput = $("#login");
+        const checkInboxButton = $(".sbut");
+        const emailList = $(".m");
+        
         emailInput.setValue('asdfghjklqwertyuiopzxcvbn')
         checkInboxButton.click()
+
     });
     it('should login with valid credentials', () => {
         LoginPage.open();
