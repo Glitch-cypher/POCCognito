@@ -12,6 +12,8 @@ export default function Status() {
             setStatus(true)
         })
     }, [])
+    //Within the return statement we have a turniry for if you are logged in the page 
+    //renders the log out button. otherwise it tells you to log in.
   return <div>
       {status ? ( 
           <div>

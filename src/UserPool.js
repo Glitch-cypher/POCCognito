@@ -1,6 +1,7 @@
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 
-//PoolData provides the information from the AWS cognito Pool. 
+//PoolData provides the information from the AWS cognito Pool.
+//This can be used within other files without having to rewrite the information everytime. 
 
 const poolData = {
   UserPoolId: "eu-west-1_a6Z6hPgM0",
