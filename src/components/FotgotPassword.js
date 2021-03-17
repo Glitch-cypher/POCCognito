@@ -3,7 +3,7 @@ import {CognitoUser} from 'amazon-cognito-identity-js'
 import Pool from '../UserPool'
 
 export default function ForgotPassword(){
-    const[stage,setStage] = useState(1)
+    const [stage,setStage] = useState(1)
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
     const [password, setPassword] = useState('');
@@ -23,6 +23,7 @@ export default function ForgotPassword(){
         getUser().forgotPassword({
             onSuccess: data =>{
                 console.log('onSuccess',data);
+                
             },
             onFailure: err =>{
                 console.log('onFailure', err);
@@ -53,7 +54,8 @@ export default function ForgotPassword(){
     }
 
     return <div>
-        {stage === 1&& (
+        <p>{error}</p>
+        {stage === 1 && (
         <form onSubmit = {sendCode}>
             <input value={email} onChange = {event=>setEmail(event.target.value)}/>
             <button type = 'submit'>Send verification code</button>
