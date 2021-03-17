@@ -1,21 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { AccountContext } from "./Accounts";
 import Pool from "../UserPool";
 import { CognitoUser } from "amazon-cognito-identity-js";
 
 export default function Profile(){
-    const [email, setEmail] = useState("");
-    const cognitoUser = Pool.getCurrentUser();
-    const getUser = () => {
-        return new CognitoUser({
-          Username: email.toLowerCase(),
-          Pool,
-        });
-      };
+  const {getSession} = useContext(AccountContext)
+  const [email, setEmail] = useState('')
+  useEffect(()=> {
+      getSession()
+      .then(session => {
+          setEmail(session.idToken.payload.email)
+        
+
+      })
+  }, [])
     
     return(
     <div><h1>hello world</h1>
-    <h1>username</h1></div>
+    <h1>{email}</h1></div>
     
 )
 }
