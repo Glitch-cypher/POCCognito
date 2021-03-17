@@ -1,6 +1,8 @@
 import React, { createContext } from "react";
 import Pool from "../UserPool";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+
+
 const AccountContext = createContext();
 
 const Account = props => {
