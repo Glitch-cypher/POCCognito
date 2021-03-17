@@ -22,15 +22,15 @@ export default function App() {
             <Link to = '/forgotPassword'>Forgot password</Link>
           </nav>
           <Switch>
-            <Route path = '/'>
-              <Status />
-              <Login />
-            </Route>
             <Route path = '/signUp'>
               <Signup />
             </Route>
             <Route path = '/forgotPassword'>
               <ForgotPassword/>
+            </Route>
+            <Route path = '/'>
+              <Status />
+              <Login />
             </Route>
           </Switch>
         </div>
