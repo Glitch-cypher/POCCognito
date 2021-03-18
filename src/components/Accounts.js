@@ -2,11 +2,10 @@ import React, { createContext } from "react";
 import Pool from "../UserPool";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 
-
 const AccountContext = createContext();
 
 const Account = props => {
-
+    // const history = useHistory()
     //getSession gets the current information for if a user is logged in or not. 
     //Returns a promise
     //We get access to the user via Pool, and we check if the user is valid. 

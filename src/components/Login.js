@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AccountContext } from "./Accounts";
 import { useHistory } from 'react-router'
 
-export default function Login() {
+export default function Login({status, setStatus}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err,setErr] = useState('');
@@ -17,6 +17,7 @@ export default function Login() {
     authenticate(email, password)
       .then((data) => {
         console.log("logged in!", data);
+        setStatus(true)
         history.push('/profile')
       })
       .catch((err) => {
