@@ -3,13 +3,9 @@ import { AccountContext } from "./Accounts";
 import { useHistory } from 'react-router'
 
 export default function StatusChange({status, setStatus}) {
-    console.log(status)
-    console.log(setStatus)
     const history = useHistory()
-   //State is set that the status is false so you are not logged in automatically. 
-   //It then uses the getSession function (see accounts) to determin if the user is logged in or not. 
-   //This then is used to decide which response is displayed to the user. if 
-    // const [status, setStatus] = useState(false)
+   
+    //using context to extract the logout function
     const {logout} = useContext(AccountContext)
   
     
