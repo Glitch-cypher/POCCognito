@@ -1,6 +1,6 @@
-import React, {  useContext} from "react";
+import React, { useContext } from "react";
 import { AccountContext } from "./Accounts";
-import { useHistory } from 'react-router'
+import { useHistory } from "react-router";
 
 export default function StatusChange({status, setStatus}) {
     const history = useHistory()
