@@ -14,10 +14,11 @@ export default function App() {
       <Router>
         <div>
           <nav>
-            <Link to="/">Login</Link>
-            <Link to="/signUp">Create account</Link>
+           
+          <Link to="/signUp">Create account</Link>
+           <Link to="/">Login</Link>
             <Link to="/forgotPassword">Forgot password</Link>
-            <Link to="/profile">Profile</Link>
+            {status ?<Link to="/profile">Profile</Link> : null}
           </nav>
           <Status status = {status} setStatus= {setStatus} />
           <Switch>
@@ -29,7 +30,7 @@ export default function App() {
             </Route>
             <Route path="/profile">
               <Profile />
-            </Route>
+            </Route> 
             <Route path="/">
               <Login status = {status} setStatus= {setStatus} />
             </Route>
