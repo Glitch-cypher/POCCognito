@@ -9,7 +9,7 @@ export default function ForgotPassword() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checked,setChecked] = useState(true);
+  const [checked, setChecked] = useState(true);
   const [error, setError] = useState("");
 
   // function to check if the user is in the system
@@ -33,7 +33,7 @@ export default function ForgotPassword() {
       },
       InputVerificationCode: (data) => {
         console.log("Input code:", data);
-              },
+      },
     });
   };
 
@@ -59,18 +59,19 @@ export default function ForgotPassword() {
   // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
-}
+  }
 
   return (
-    <div>
-        {/* displays error messages */}
-        <p>{error}</p>
-        {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
+    <div id="forgotPasswordPage">
+      {/* displays error messages */}
+      <p>{error}</p>
+      {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
           <input
+            id={"email"}
             value={email}
-            placeholder= 'Email Address'
+            placeholder="Email Address"
             onChange={(event) => setEmail(event.target.value)}
           />
           <button type="submit">Send verification code</button>
@@ -80,23 +81,30 @@ export default function ForgotPassword() {
       {stage === 2 && (
         <form onSubmit={resetPassword}>
           <input
+            id={"code"}
             value={code}
-            placeholder='Code'
+            placeholder="Code"
             onChange={(event) => setCode(event.target.value)}
           />
           <input
+            id={"newPass"}
             value={password}
-            type = {checked? 'password':'text'}
-            placeholder='New Password'
+            type={checked ? "password" : "text"}
+            placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
           <input
+            id={"confirmPass"}
             value={confirmPassword}
-            type = {checked? 'password':'text'}
-            placeholder='Confirm New Password'
+            type={checked ? "password" : "text"}
+            placeholder="Confirm New Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-           <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/>
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={() => passwordToggle()}
+          />
           <button type="submit">Change passworde</button>
         </form>
       )}
