@@ -16,6 +16,8 @@ export default function StatusChange({ status, setStatus }) {
         <div>
           You are logged in.
           <button
+            class="govuk-button"
+            data-module="govuk-button"
             onClick={() => {
               setStatus(false);
               logout();

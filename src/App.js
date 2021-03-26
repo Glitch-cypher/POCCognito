@@ -11,31 +11,30 @@ export default function App() {
   const [status, setStatus] = useState(false);
   return (
     <Account>
-      <Router>
-        <div>
-          <nav>
-            <Link to="/signUp">Create account</Link>
-            <Link to="/">Login</Link>
-            <Link to="/forgotPassword">Forgot password</Link>
-            {status ? <Link to="/profile">Profile</Link> : null}
-          </nav>
-          <Status status={status} setStatus={setStatus} />
-          <Switch>
-            <Route path="/signUp">
-              <Signup />
-            </Route>
-            <Route path="/forgotPassword">
-              <ForgotPassword />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/">
-              <Login status={status} setStatus={setStatus} />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </Account>
-  );
-}
+    <Router>
+      <div>
+        <nav>
+          <Link to="/signUp">Create account</Link>
+          <Link to="/">Login</Link>
+          <Link to="/forgotPassword">Forgot password</Link>
+          {status ? <Link to="/profile">Profile</Link> : null}
+        </nav>
+        <Status status={status} setStatus={setStatus} />
+        <Switch>
+          <Route path="/signUp">
+            <Signup />
+          </Route>
+          <Route path="/forgotPassword">
+            <ForgotPassword />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/">
+            <Login status={status} setStatus={setStatus} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  </Account>
+  )}

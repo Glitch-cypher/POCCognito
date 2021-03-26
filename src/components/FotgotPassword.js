@@ -9,7 +9,7 @@ export default function ForgotPassword() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checked,setChecked] = useState(true);
+  const [checked, setChecked] = useState(true);
   const [error, setError] = useState("");
 
   // function to check if the user is in the system
@@ -33,7 +33,7 @@ export default function ForgotPassword() {
       },
       InputVerificationCode: (data) => {
         console.log("Input code:", data);
-              },
+      },
     });
   };
 
@@ -59,45 +59,57 @@ export default function ForgotPassword() {
   // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
-}
+  }
 
   return (
     <div>
-        {/* displays error messages */}
-        <p>{error}</p>
-        {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
+      {/* displays error messages */}
+      <p>{error}</p>
+      {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
-          <input
-            value={email}
-            placeholder= 'Email Address'
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <button type="submit">Send verification code</button>
+        <input
+        class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="email address"
+          value={email}
+          placeholder="Enter Email Address"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+          
+          <button class="govuk-button" data-module="govuk-button" type="submit">
+            Send verification code
+          </button>
         </form>
       )}
       {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
-          <input
-            value={code}
-            placeholder='Code'
+        <input
+        class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="code"
+          value={code}
+            placeholder="Enter Verification Code"
             onChange={(event) => setCode(event.target.value)}
-          />
-          <input
+        />
+          
+          <input class="govuk-input govuk-!-width-one-quarter"
             value={password}
-            type = {checked? 'password':'text'}
-            placeholder='New Password'
+            type={checked ? "password" : "text"}
+            placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <input
+          <input class="govuk-input govuk-!-width-one-quarter"
             value={confirmPassword}
-            type = {checked? 'password':'text'}
-            placeholder='Confirm New Password'
+            type={checked ? "password" : "text"}
+            placeholder="Confirm New Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-           <input type = 'checkbox' checked = {checked} onChange = {()=>passwordToggle()}/>
-          <button type="submit">Change passworde</button>
+          
+          <button class="govuk-button" data-module="govuk-button" type="submit">
+            Change passworde
+          </button>
         </form>
       )}
     </div>
