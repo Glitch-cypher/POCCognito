@@ -33,28 +33,28 @@ export default function Login({ setTokens }) {
   return (
     <div id="loginPage">
       <form onSubmit={onSubmit}>
-        <p id="errorMessage" style={{ fontSize: "1em", color: "red" }}>
-          {err}
-        </p>
+        
         <input
+         class="govuk-input govuk-!-width-one-quarter"
           id="username"
           value={email}
           placeholder="Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
+         class="govuk-input govuk-!-width-one-quarter"
           id="password"
           type={checked ? "password" : "text"}
           value={password}
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => passwordToggle()}
-        />
-        <button type="submit">Login</button>
+        <span id="national-insurance-number-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> {err}
+  </span>
+        <button class="govuk-button" data-module="govuk-button" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

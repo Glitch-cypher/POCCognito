@@ -39,36 +39,45 @@ export default function Signup() {
   return (
     <div id="signupPage">
       <form onSubmit={onSubmit}>
-        <p style={{ fontSize: "1em", color: "red" }}>{err}</p>
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            Please Register Below
+          </label>
+        </h1>
+
         <input
-          id="username"
-          //Here we allow the user to input their email address, password, this is then set as the new state.
+        class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="email"
           value={email}
-          placeholder="Email Address"
+                    placeholder="Enter Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
+         class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
           id="password"
           type={checked ? "password" : "text"}
           value={password}
-          placeholder="Password"
+          placeholder="Create a Password"
           onChange={(event) => setPassword(event.target.value)}
         />
         <input
-          id="confirm-password"
+         class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="confirmPassword"
           type={checked ? "password" : "text"}
           value={passwordDup}
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
         />
 
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => passwordToggle()}
-          //This input allows the user to either view their password or hide it.
-        />
-        <button type="submit">Sign Me Up</button>
+<span id="national-insurance-number-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> {err}
+  </span>
+        <button class="govuk-button" data-module="govuk-button" type="submit">
+          Create an account
+        </button>
       </form>
     </div>
   );

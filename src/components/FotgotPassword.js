@@ -68,44 +68,50 @@ export default function ForgotPassword() {
       {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
-          <input
-            id={"email"}
-            value={email}
-            placeholder="Email Address"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <button type="submit">Send verification code</button>
+        <input
+        class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="email"
+          value={email}
+          placeholder="Enter Email Address"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+          
+          <button class="govuk-button" data-module="govuk-button" type="submit">
+            Send verification code
+          </button>
         </form>
       )}
       {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
-          <input
-            id={"code"}
-            value={code}
-            placeholder="Code"
+        <input
+        class="govuk-input govuk-!-width-one-quarter"
+          name="three-quarters"
+          id="code"
+          value={code}
+            placeholder="Enter Verification Code"
             onChange={(event) => setCode(event.target.value)}
-          />
-          <input
-            id={"newPass"}
+        />
+          
+          <input class="govuk-input govuk-!-width-one-quarter"
+          id = 'newPass'
             value={password}
             type={checked ? "password" : "text"}
             placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <input
-            id={"confirmPass"}
+          <input class="govuk-input govuk-!-width-one-quarter"
+          id='confirmNewPass'
             value={confirmPassword}
             type={checked ? "password" : "text"}
             placeholder="Confirm New Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={() => passwordToggle()}
-          />
-          <button type="submit">Change passworde</button>
+          
+          <button class="govuk-button" data-module="govuk-button" type="submit">
+            Change passworde
+          </button>
         </form>
       )}
     </div>
