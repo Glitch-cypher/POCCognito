@@ -6,7 +6,6 @@ export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
-  const [checked, setChecked] = useState(true);
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
 
@@ -25,33 +24,27 @@ export default function Login({ setTokens }) {
       });
   };
 
-  // toggles the screen view of their password to be characters or just stars.
-  function passwordToggle() {
-    setChecked(!checked);
-  }
-
   return (
     <div id="loginPage">
       <form onSubmit={onSubmit}>
-        
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          class="govuk-input govuk-!-width-one-quarter"
           id="username"
           value={email}
           placeholder="Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          class="govuk-input govuk-!-width-one-quarter"
           id="password"
-          type={checked ? "password" : "text"}
+          type="password"
           value={password}
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
         <span id="national-insurance-number-error" class="govuk-error-message">
-    <span class="govuk-visually-hidden">Error:</span> {err}
-  </span>
+          <span class="govuk-visually-hidden">Error:</span> {err}
+        </span>
         <button class="govuk-button" data-module="govuk-button" type="submit">
           Login
         </button>

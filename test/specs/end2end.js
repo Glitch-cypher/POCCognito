@@ -9,7 +9,6 @@
 // const email = "testpocacc@gmail.com";
 // const password = "Hello1234!";
 // const newPass = "Goodbye4321!";
-// require("dotenv").config();
 
 // describe("My Login application", () => {
 //   it("should register a new account with valid credentials", () => {

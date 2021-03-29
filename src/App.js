@@ -13,19 +13,23 @@ export default function App() {
   useEffect(() => {
     getSession().then((session) => {
       setTokens(session);
-    }, []);
-  });
+    });
+  }, []);
 
   return (
     <Router>
       <div>
         <nav>
-          <Link to="/signup">Create account</Link>
-          <Link to="/">Login</Link>
-          <Link to="/forgotpassword">Forgot password</Link>
-          {tokens ? <Link to="/profile">Profile</Link> : null}
+          {!tokens ? (
+            <div>
+              <Link to="/signup">Create account</Link>
+              <Link to="/">Login</Link>{" "}
+              <Link to="/forgotpassword">Forgot password</Link>
+            </div>
+          ) : (
+            <Link to="/profile">Profile</Link>
+          )}
         </nav>
-        <Status tokens={tokens} setTokens={setTokens} />
         <Switch>
           <Route path="/signup">
             <Signup />
@@ -34,10 +38,15 @@ export default function App() {
             <ForgotPassword />
           </Route>
           <Route path="/profile">
-            {tokens ? <Profile email={tokens.idToken.payload.email} /> : null}
+            {tokens ? (
+              <div>
+                <Status tokens={tokens} setTokens={setTokens} />
+                <Profile email={tokens.idToken.payload.email} />
+              </div>
+            ) : null}
           </Route>
           <Route path="/">
-            <Login setTokens={setTokens} />
+            <Login tokens={tokens} setTokens={setTokens} />
           </Route>
         </Switch>
       </div>
