@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AccountContext } from "./Accounts";
 import { useHistory } from "react-router";
 
-export default function Login({ status, setStatus }) {
+export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -17,7 +17,7 @@ export default function Login({ status, setStatus }) {
     authenticate(email, password)
       .then((data) => {
         console.log("logged in!", data);
-        setStatus(true);
+        setTokens(data);
         history.push("/profile");
       })
       .catch((err) => {
@@ -31,7 +31,7 @@ export default function Login({ status, setStatus }) {
   }console.log(passwordToggle)
 
   return (
-    <div>
+    <div id="loginPage">
       <form onSubmit={onSubmit}>
       <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="event-name">
@@ -56,11 +56,6 @@ export default function Login({ status, setStatus }) {
         <span id="national-insurance-number-error" class="govuk-error-message">
     <span class="govuk-visually-hidden">Error:</span> {err}
   </span>
-        {/* <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => passwordToggle()}
-        /> */}
         <button class="govuk-button" data-module="govuk-button" type="submit">
           Login
         </button>

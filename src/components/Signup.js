@@ -38,7 +38,7 @@ export default function Signup() {
   console.log(passwordToggle)
 
   return (
-    <div>
+    <div id="signupPage">
       <form onSubmit={onSubmit}>
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="event-name">
@@ -49,7 +49,7 @@ export default function Signup() {
         <input
         class="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
-          id="email address"
+          id="email"
           value={email}
                     placeholder="Enter Email Address"
           onChange={(event) => setEmail(event.target.value)}
@@ -66,7 +66,7 @@ export default function Signup() {
         <input
          class="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
-          id="confirm password"
+          id="confirmPassword"
           type={checked ? "password" : "text"}
           value={passwordDup}
           placeholder="Confirm Password"

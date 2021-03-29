@@ -35,9 +35,18 @@ function deleteUserFromAWS(email) {
   acceptCookiesButton.click();
   searchBar.setValue("cognito");
   cognito.click();
+  expect(browser).toHaveUrl(
+    "https://eu-west-1.console.aws.amazon.com/cognito/home?region=eu-west-1#"
+  );
   userPool.click();
+  expect(browser).toHaveUrlContaining(
+    "https://eu-west-1.console.aws.amazon.com/cognito/users/?region=eu-west-1#/?_k="
+  );
   specificUserPool.click();
   userGroup.click();
+  expect(browser).toHaveUrlContaining(
+    "https://eu-west-1.console.aws.amazon.com/cognito/users/?region=eu-west-1#/pool/eu-west-1_a6Z6hPgM0/users?_k="
+  );
   userGroupDropDown.click();
   userGroupDropDownEmail.click();
   userGroupSearchBar.setValue(email);

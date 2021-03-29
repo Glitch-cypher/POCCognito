@@ -62,7 +62,7 @@ export default function ForgotPassword() {
   }console.log(passwordToggle)
 
   return (
-    <div>
+    <div id="forgotPasswordPage">
       {/* displays error messages */}
       <p>{error}</p>
       {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
@@ -76,7 +76,7 @@ export default function ForgotPassword() {
         <input
         class="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
-          id="email address"
+          id="email"
           value={email}
           placeholder="Enter Email Address"
           onChange={(event) => setEmail(event.target.value)}
@@ -105,12 +105,14 @@ export default function ForgotPassword() {
         />
           
           <input class="govuk-input govuk-!-width-one-quarter"
+          id = 'newPass'
             value={password}
             type={checked ? "password" : "text"}
             placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
           <input class="govuk-input govuk-!-width-one-quarter"
+          id='confirmNewPass'
             value={confirmPassword}
             type={checked ? "password" : "text"}
             placeholder="Confirm New Password"

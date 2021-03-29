@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { AccountContext } from "./components/Accounts";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import { Account } from "./components/Accounts";
 import Status from "./components/Status";
 import ForgotPassword from "./components/FotgotPassword";
 import Profile from "./components/Profile";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
-  const [status, setStatus] = useState(false);
+  const { getSession } = useContext(AccountContext);
+  const [tokens, setTokens] = useState();
+  useEffect(() => {
+    getSession().then((session) => {
+      setTokens(session);
+    }, []);
+  });
+
   return (
     <Account>
       <Router>
