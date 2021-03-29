@@ -1,4 +1,7 @@
-export default function Profile({ email }) {
+import React from "react";
+
+export default function Confirmation({email}){
+
   //In order for the profile page we use getSession to see whether the user is a user or not.
   //Next we then take the information stored in state and display it on the screen.
   return (

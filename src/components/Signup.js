@@ -9,7 +9,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [passwordDup, setPasswordDup] = useState("");
   const [err, setErr] = useState("");
-  const [checked, setChecked] = useState(true);
+ 
   const history = useHistory();
 
   //When the onsubmit button is clocked this function is called.
@@ -22,61 +22,62 @@ export default function Signup() {
         if (err) {
           setErr(err.message);
         } else {
-          history.push("/");
+          history.push("/Confirmation");
         }
         console.log(data);
+        history.push("/Confirmation");
       });
     } else {
       setErr("Passwords do not match, please re-enter and try again");
     }
   };
 
-  //This function checks the passwords match
-  function passwordToggle() {
-    setChecked(!checked);
-  }
-  console.log(passwordToggle)
+
+ 
 
   return (
     <div id="signupPage">
       <form onSubmit={onSubmit}>
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="event-name">
+        <h1 className="govuk-label-wrapper">
+          <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Please Register Below
           </label>
         </h1>
 
         <input
-        class="govuk-input govuk-!-width-one-quarter"
+          className="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
           id="email"
           value={email}
-                    placeholder="Enter Email Address"
+          placeholder="Enter Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          className="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
           id="password"
-          type={checked ? "password" : "text"}
+          type="password"
           value={password}
           placeholder="Create a Password"
           onChange={(event) => setPassword(event.target.value)}
         />
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          className="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
           id="confirmPassword"
-          type={checked ? "password" : "text"}
+          type="password"
           value={passwordDup}
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
         />
-
-<span id="national-insurance-number-error" class="govuk-error-message">
-    <span class="govuk-visually-hidden">Error:</span> {err}
-  </span>
-        <button class="govuk-button" data-module="govuk-button" type="submit">
+        <span id="national-insurance-number-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {err}
+        </span>
+        <button
+          className="govuk-button"
+          data-module="govuk-button"
+          type="submit"
+                 >
           Create an account
         </button>
       </form>

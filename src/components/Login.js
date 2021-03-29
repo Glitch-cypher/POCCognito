@@ -6,7 +6,6 @@ export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
-  const [checked, setChecked] = useState(true);
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
 
@@ -25,38 +24,43 @@ export default function Login({ setTokens }) {
       });
   };
 
-  // toggles the screen view of their password to be characters or just stars.
-  function passwordToggle() {
-    setChecked(!checked);
-  }console.log(passwordToggle)
-
   return (
     <div id="loginPage">
       <form onSubmit={onSubmit}>
-      <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="event-name">
+        <h1 className="govuk-label-wrapper">
+          <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Please Login Below
           </label>
         </h1>
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          className="govuk-input govuk-!-width-one-quarter"
           id="username"
-          value={email}
           placeholder="Email Address"
+          type="email"
+          value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
-         class="govuk-input govuk-!-width-one-quarter"
+          className="govuk-input govuk-!-width-one-quarter"
           id="password"
-          type={checked ? "password" : "text"}
-          value={password}
+          type="password"
           placeholder="Password"
-          onChange={(event) => setPassword(event.target.value)}
+          value={password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
         />
-        <span id="national-insurance-number-error" class="govuk-error-message">
-    <span class="govuk-visually-hidden">Error:</span> {err}
-  </span>
-        <button class="govuk-button" data-module="govuk-button" type="submit">
+        <span
+          id="national-insurance-number-error"
+          className="govuk-error-message"
+        >
+          <span className="govuk-visually-hidden">Error:</span> {err}
+        </span>
+        <button
+          className="govuk-button"
+          data-module="govuk-button"
+          type="submit"
+        >
           Login
         </button>
       </form>

@@ -9,7 +9,7 @@ export default function ForgotPassword() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checked, setChecked] = useState(true);
+  
   const [error, setError] = useState("");
 
   // function to check if the user is in the system
@@ -56,25 +56,20 @@ export default function ForgotPassword() {
     });
   };
 
-  // toggles the screen view of their password to be characters or just stars.
-  function passwordToggle() {
-    setChecked(!checked);
-  }console.log(passwordToggle)
-
-  return (
+    return (
     <div id="forgotPasswordPage">
       {/* displays error messages */}
       <p>{error}</p>
       {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
-        <h2 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="event-name">
+        <h2 className="govuk-label-wrapper">
+          <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Enter your email address to reset your password
           </label>
         </h2>
         <input
-        class="govuk-input govuk-!-width-one-quarter"
+        className="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
           id="email"
           value={email}
@@ -82,7 +77,7 @@ export default function ForgotPassword() {
           onChange={(event) => setEmail(event.target.value)}
         />
           
-          <button class="govuk-button" data-module="govuk-button" type="submit">
+          <button className="govuk-button" data-module="govuk-button" type="submit">
             Send verification code
           </button>
         </form>
@@ -90,13 +85,13 @@ export default function ForgotPassword() {
       {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
-        <h2 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="event-name">
+        <h2 className="govuk-label-wrapper">
+          <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Enter the information below to reset your password
           </label>
         </h2>
         <input
-        class="govuk-input govuk-!-width-one-quarter"
+        className="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
           id="code"
           value={code}
@@ -104,22 +99,22 @@ export default function ForgotPassword() {
             onChange={(event) => setCode(event.target.value)}
         />
           
-          <input class="govuk-input govuk-!-width-one-quarter"
+          <input className="govuk-input govuk-!-width-one-quarter"
           id = 'newPass'
             value={password}
-            type={checked ? "password" : "text"}
+            type="password"
             placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <input class="govuk-input govuk-!-width-one-quarter"
+          <input className="govuk-input govuk-!-width-one-quarter"
           id='confirmNewPass'
             value={confirmPassword}
-            type={checked ? "password" : "text"}
+            type="password"
             placeholder="Confirm New Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
           
-          <button class="govuk-button" data-module="govuk-button" type="submit">
+          <button className="govuk-button" data-module="govuk-button" type="submit">
             Change passworde
           </button>
         </form>
