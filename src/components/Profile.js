@@ -14,9 +14,28 @@ export default function Profile() {
 
   return (
     <div>
-      <h1>Welcome to your profile page.</h1>
-      <p>You use the following email address to log in.</p>
-      <h2>{email}</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">Application complete</h1>
+            <div class="govuk-panel__body">
+              You registered with the following email address
+              <br />
+              <strong>{email}</strong>
+            </div>
+          </div>
+          <p class="govuk-body">We have sent you a confirmation email.</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            We’ve sent you an email with a verification link.
+          </p>
+          <p class="govuk-body">
+            Once you have verfied your email address you will be able to log in and access the service.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

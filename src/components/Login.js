@@ -28,12 +28,16 @@ export default function Login({ status, setStatus }) {
   // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
-  }
+  }console.log(passwordToggle)
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-        
+      <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            Please Login Below
+          </label>
+        </h1>
         <input
          class="govuk-input govuk-!-width-one-quarter"
           id="username"

@@ -59,7 +59,7 @@ export default function ForgotPassword() {
   // toggles the screen view of their password to be characters or just stars.
   function passwordToggle() {
     setChecked(!checked);
-  }
+  }console.log(passwordToggle)
 
   return (
     <div>
@@ -68,6 +68,11 @@ export default function ForgotPassword() {
       {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            Enter your email address to reset your password
+          </label>
+        </h2>
         <input
         class="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"
@@ -85,6 +90,11 @@ export default function ForgotPassword() {
       {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            Enter the information below to reset your password
+          </label>
+        </h2>
         <input
         class="govuk-input govuk-!-width-one-quarter"
           name="three-quarters"

@@ -35,6 +35,7 @@ export default function Signup() {
   function passwordToggle() {
     setChecked(!checked);
   }
+  console.log(passwordToggle)
 
   return (
     <div>
