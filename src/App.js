@@ -1,18 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
-import { AccountContext } from "./components/Accounts";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//Pages
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Confirmation from "./pages/Confirmation";
+//Componenets
+import { AccountContext } from "./components/Accounts";
 import NavBar from "./components/NavBar";
 import Status from "./components/Status";
 
 export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
-  const [email,setEmail] =useState();
+  const [email, setEmail] = useState();
   useEffect(() => {
     getSession().then((session) => {
       setTokens(session);
@@ -161,7 +163,7 @@ export default function App() {
 
             <Switch>
               <Route path="/signUp">
-                <Signup  email={email} setEmail={setEmail}/>
+                <Signup email={email} setEmail={setEmail} />
               </Route>
               <Route path="/forgotPassword">
                 <ForgotPassword />
@@ -172,7 +174,7 @@ export default function App() {
                 ) : null}
               </Route>
               <Route path="/confirmation">
-                <Confirmation email={email}/>
+                <Confirmation email={email} />
               </Route>
               <Route path="/">
                 <Login tokens={tokens} setTokens={setTokens} />

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+//AWS
 import UserPool from "../UserPool";
 
-import { useHistory } from "react-router";
-
-export default function Signup({email, setEmail}) {
+export default function Signup({ email, setEmail }) {
   //Here we set empty states for the input fields, err and the visibility of password.
   const [password, setPassword] = useState("");
   const [passwordDup, setPasswordDup] = useState("");
   const [err, setErr] = useState("");
- 
+
   const history = useHistory();
 
   //When the onsubmit button is clocked this function is called.
@@ -23,15 +23,12 @@ export default function Signup({email, setEmail}) {
         } else {
           history.push("/confirmation");
         }
-        console.log({data});
-              });
+        console.log({ data });
+      });
     } else {
       setErr("Passwords do not match, please re-enter and try again");
     }
   };
-
-
- 
 
   return (
     <div id="signupPage">
@@ -68,14 +65,17 @@ export default function Signup({email, setEmail}) {
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
         />
-        <span id="national-insurance-number-error" className="govuk-error-message">
+        <span
+          id="national-insurance-number-error"
+          className="govuk-error-message"
+        >
           <span className="govuk-visually-hidden">Error:</span> {err}
         </span>
         <button
           className="govuk-button"
           data-module="govuk-button"
           type="submit"
-                 >
+        >
           Create an account
         </button>
       </form>

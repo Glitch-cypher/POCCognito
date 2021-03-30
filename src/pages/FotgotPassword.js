@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+//AWS
 import { CognitoUser } from "amazon-cognito-identity-js";
 import Pool from "../UserPool";
-import { useHistory } from "react-router";
 
 // Function for the user to be able to get a new password
 export default function ForgotPassword() {
@@ -58,28 +59,32 @@ export default function ForgotPassword() {
     });
   };
 
-    return (
+  return (
     <div id="forgotPasswordPage">
       {/* displays error messages */}
       <p>{error}</p>
       {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
       {stage === 1 && (
         <form onSubmit={sendCode}>
-        <h2 className="govuk-label-wrapper">
-          <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Enter your email address to reset your password
-          </label>
-        </h2>
-        <input
-        className="govuk-input govuk-!-width-one-quarter"
-          name="three-quarters"
-          id="email"
-          value={email}
-          placeholder="Enter Email Address"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-          
-          <button className="govuk-button" data-module="govuk-button" type="submit">
+          <h2 className="govuk-label-wrapper">
+            <label className="govuk-label govuk-label--l" htmlFor="event-name">
+              Enter your email address to reset your password
+            </label>
+          </h2>
+          <input
+            className="govuk-input govuk-!-width-one-quarter"
+            name="three-quarters"
+            id="email"
+            value={email}
+            placeholder="Enter Email Address"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+
+          <button
+            className="govuk-button"
+            data-module="govuk-button"
+            type="submit"
+          >
             Send verification code
           </button>
         </form>
@@ -87,36 +92,42 @@ export default function ForgotPassword() {
       {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
       {stage === 2 && (
         <form onSubmit={resetPassword}>
-        <h2 className="govuk-label-wrapper">
-          <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Enter the information below to reset your password
-          </label>
-        </h2>
-        <input
-        className="govuk-input govuk-!-width-one-quarter"
-          name="three-quarters"
-          id="code"
-          value={code}
+          <h2 className="govuk-label-wrapper">
+            <label className="govuk-label govuk-label--l" htmlFor="event-name">
+              Enter the information below to reset your password
+            </label>
+          </h2>
+          <input
+            className="govuk-input govuk-!-width-one-quarter"
+            name="three-quarters"
+            id="code"
+            value={code}
             placeholder="Enter Verification Code"
             onChange={(event) => setCode(event.target.value)}
-        />
-          
-          <input className="govuk-input govuk-!-width-one-quarter"
-          id = 'newPass'
+          />
+
+          <input
+            className="govuk-input govuk-!-width-one-quarter"
+            id="newPass"
             value={password}
             type="password"
             placeholder="New Password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <input className="govuk-input govuk-!-width-one-quarter"
-          id='confirmNewPass'
+          <input
+            className="govuk-input govuk-!-width-one-quarter"
+            id="confirmNewPass"
             value={confirmPassword}
             type="password"
             placeholder="Confirm New Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-          
-          <button className="govuk-button" data-module="govuk-button" type="submit">
+
+          <button
+            className="govuk-button"
+            data-module="govuk-button"
+            type="submit"
+          >
             Change passworde
           </button>
         </form>

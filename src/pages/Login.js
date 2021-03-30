@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { AccountContext } from "../components/Accounts";
 import { useHistory } from "react-router";
-import ForgotPassword from "./FotgotPassword";
+//Componenets
+import { AccountContext } from "../components/Accounts";
 
 export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");

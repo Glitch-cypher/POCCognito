@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import { AccountContext } from "./Accounts";
 import { useHistory } from "react-router";
-
+//Componenets
+import { AccountContext } from "./Accounts";
 export default function StatusChange({ tokens, setTokens }) {
   const history = useHistory();
 
@@ -13,13 +13,15 @@ export default function StatusChange({ tokens, setTokens }) {
   //Within the return statement we have a turniry for if you are logged in the page
   //renders the log out button. otherwise it tells you to log in.
   return (
-      <a className="govuk-header__link" href="/"
-        onClick={() => {
-          logout();
-          setTokens();
-        }}
-      >
-        {tokens.idToken.payload.email} : Sign out
-      </a>
+    <a
+      className="govuk-header__link"
+      href="/"
+      onClick={() => {
+        logout();
+        setTokens();
+      }}
+    >
+      {tokens.idToken.payload.email} : Sign out
+    </a>
   );
 }

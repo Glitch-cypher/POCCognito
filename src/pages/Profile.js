@@ -21,7 +21,8 @@ export default function Profile({ email }) {
             We’ve sent you an email with a verification link.
           </p>
           <p className="govuk-body">
-            Once you have verfied your email address you will be able to log in and access the service.
+            Once you have verfied your email address you will be able to log in
+            and access the service.
           </p>
         </div>
       </div>
