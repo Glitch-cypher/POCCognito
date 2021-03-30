@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AccountContext } from "../components/Accounts";
 import { useHistory } from "react-router";
+import ForgotPassword from "./FotgotPassword";
 
 export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
@@ -55,7 +56,24 @@ export default function Login({ setTokens }) {
           className="govuk-error-message"
         >
           <span className="govuk-visually-hidden">Error:</span> {err}
-        </span>
+        </span>{" "}
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Problem Signing in?</span>
+          </summary>
+          <div class="govuk-details__text">
+            <li className="govuk-header__navigation-item">
+              <li>
+                <a
+                  className="govuk-header__navigation-item"
+                  href="/forgotpassword"
+                >
+                  Forgotten your password?
+                </a>
+              </li>
+            </li>
+          </div>
+        </details>
         <button
           className="govuk-button"
           data-module="govuk-button"
