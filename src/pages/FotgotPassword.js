@@ -99,38 +99,38 @@ export default function ForgotPassword() {
               Enter the information below to reset your password
             </label>
           </h2>
-          <label class="govuk-label" for="three-quarters">
+          <label className="govuk-label" for="three-quarters">
           Verification Code
         </label>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
             name="three-quarters"
             id="code"
             value={code}
             placeholder="Verification Code"
             onChange={(event) => setCode(event.target.value)}
           />
-<label class="govuk-label" for="three-quarters">
+<label className="govuk-label" for="three-quarters">
          Create Password
         </label>
-        <div id="event-name-hint" class="govuk-hint">
+        <div id="event-name-hint" className="govuk-hint">
         Must contain at least 8 characters with at least 1 capital letter, 1 lower case letter, 1 number and 1 symbol.
 Do not use your username, a common word like 'password' or a sequence like '123'.h.
         </div>
 
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
             id="newPass"
             value={password}
             type="password"
             placeholder="Password"
             onChange={(event) => setPassword(event.target.value)}
           />
-         <label class="govuk-label" for="three-quarters">
+         <label className="govuk-label" for="three-quarters">
          Re-type your password
         </label>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
             id="confirmNewPass"
             value={confirmPassword}
             type="password"

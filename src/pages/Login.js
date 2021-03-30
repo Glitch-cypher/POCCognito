@@ -33,25 +33,25 @@ export default function Login({ setTokens }) {
             Please Login Below
           </label>
         </h1>
-        <label class="govuk-label" for="three-quarters">
+        <label className="govuk-label" for="three-quarters">
           Email Address
         </label>
-        <div id="event-name-hint" class="govuk-hint">
+        <div id="event-name-hint" className="govuk-hint">
           This is the email address you used to sign up with.
         </div>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
           id="username"
           placeholder="Email Address"
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <label class="govuk-label" for="three-quarters">
+        <label className="govuk-label" for="three-quarters">
           Password
         </label>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
           id="password"
           type="password"
           placeholder="Password"

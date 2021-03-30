@@ -39,18 +39,18 @@ export default function Signup({ email, setEmail }) {
           </label>
         </h1>
 
-        <label class="govuk-label" for="email">
+        <label className="govuk-label" for="email">
           Enter Email Address
         </label>
-        <div id="email-hint" class="govuk-hint">
+        <div id="email-hint" className="govuk-hint">
           Your email address will be used as a username.
         </div>
-        <span id="email-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span>Enter an email
+        <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span>Enter an email
           address in the correct format, like name@example.com
         </span>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
           id="email"
           value={email}
@@ -58,16 +58,16 @@ export default function Signup({ email, setEmail }) {
           onChange={(event) => setEmail(event.target.value)}
         />
 
-        <label class="govuk-label" for="three-quarters">
+        <label className="govuk-label" for="three-quarters">
           Create password
         </label>
-        <div id="event-name-hint" class="govuk-hint">
+        <div id="event-name-hint" className="govuk-hint">
           Must contain at least 8 characters with at least 1 capital letter, 1
           lower case letter, 1 number and 1 symbol. Do not use your username, a
           common word like 'password' or a sequence like '123'.
         </div>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
           id="password"
           type="password"
@@ -75,11 +75,11 @@ export default function Signup({ email, setEmail }) {
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <label class="govuk-label" for="three-quarters">
+        <label className="govuk-label" for="three-quarters">
           Re-type your password
         </label>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
           id="confirmPassword"
           type="password"
