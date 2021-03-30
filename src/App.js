@@ -1,5 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 //Pages
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -17,8 +22,8 @@ export default function App() {
   const [email, setEmail] = useState();
   useEffect(() => {
     getSession().then((session) => {
+      console.log(session);
       setTokens(session);
-      console.log({ session });
     });
   }, []);
 
@@ -134,7 +139,7 @@ export default function App() {
                 Service name
               </a>
               {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
-              <NavBar tokens={tokens} setTokens={setTokens} />
+              <NavBar tokens={tokens} />
             </div>
           </div>
         </header>

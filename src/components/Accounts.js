@@ -25,7 +25,7 @@ const Account = (props) => {
           }
         });
       } else {
-        reject();
+        reject("No active session data found, no user currently logged in.");
       }
     });
 

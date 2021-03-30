@@ -57,11 +57,13 @@ export default function Login({ setTokens }) {
         >
           <span className="govuk-visually-hidden">Error:</span> {err}
         </span>{" "}
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">Problem Signing in?</span>
+        <details className="govuk-details" data-module="govuk-details">
+          <summary className="govuk-details__summary">
+            <span className="govuk-details__summary-text">
+              Problem Signing in?
+            </span>
           </summary>
-          <div class="govuk-details__text">
+          <div className="govuk-details__text">
             <li className="govuk-header__navigation-item">
               <li>
                 <a

@@ -1,10 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory } from "react-router";
 //Componenets
 import { AccountContext } from "./Accounts";
 export default function StatusChange({ tokens, setTokens }) {
-  const history = useHistory();
-
   //using context to extract the logout function
   const { logout } = useContext(AccountContext);
   useEffect(() => {

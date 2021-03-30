@@ -7,7 +7,7 @@ export default function Form() {
         </label>
       </h1>
 
-      <Input
+      <input
         className="govuk-input govuk-!-width-one-quarter"
         name="three-quarters"
         id="email"
