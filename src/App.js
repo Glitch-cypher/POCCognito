@@ -1,17 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 //Pages
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
 import Confirmation from "./pages/Confirmation";
+
 //Componenets
 import CookieBanner from "./components/CookieBanner";
 import { AccountContext } from "./components/Accounts";
 import Header from "./components/Header";
 import PhaseBanner from "./components/PhaseBanner.js";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 export default function App() {
   const { getSession } = useContext(AccountContext);
