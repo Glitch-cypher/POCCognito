@@ -9,11 +9,8 @@
     "@wdio/cli": "^7.2.3",
     "amazon-cognito-identity-js": "^4.5.14",
     "dotenv": "^8.2.0",
-<<<<<<< HEAD
     "gitignore": "^0.6.0",
-=======
     "govuk-frontend": "^3.11.0",
->>>>>>> 16cb5404561d89a1111d5a85c2f67cc1836f1c87
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
