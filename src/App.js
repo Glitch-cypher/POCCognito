@@ -1,18 +1,22 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AccountContext } from "./components/Accounts";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import ForgotPassword from "./components/FotgotPassword";
-import Profile from "./components/Profile";
-import Status from "./components/Status"
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/FotgotPassword";
+import Profile from "./pages/Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Confirmation from "./components/Confirmation";
+import Confirmation from "./pages/Confirmation";
+import NavBar from "./components/NavBar";
+import Status from "./components/Status";
+
 export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
+  const [email,setEmail] =useState();
   useEffect(() => {
     getSession().then((session) => {
       setTokens(session);
+      console.log({ session });
     });
   }, []);
 
@@ -127,49 +131,8 @@ export default function App() {
               >
                 Service name
               </a>
-
-              <nav>
-                <ul
-                  id="navigation"
-                  className="govuk-header__navigation "
-                  aria-label="Navigation menu"
-                >
-                  {!tokens ? (
-                    <li className="govuk-header__navigation-item">
-                      <a className="govuk-header__link" href="/profile">
-                        email: Sign out
-                      </a>
-                    </li>
-                  ) : null}
-                  {tokens ? (
-                    <li className="govuk-header__navigation-item govuk-header__navigation-item--active">
-                      <a className="govuk-header__link" href="/">
-                        Sign in
-                      </a>
-                    </li>
-                  ) : null}
-                  {tokens ? (
-                    <li className="govuk-header__navigation-item">
-                      <a className="govuk-header__link" href="/signup">
-                        Create an Account
-                      </a>
-                    </li>
-                  ) : null}
-                  {tokens ? (
-                    <li className="govuk-header__navigation-item">
-                      <a className="govuk-header__link" href="/forgotpassword">
-                        Forgot Password
-                      </a>
-                    </li>
-                  ) : null}
-                  {tokens ? (
-                    <li className="govuk-header__navigation-item">
-                      <a className="govuk-header__link" href="/confirmation">
-                              aaa            </a>
-                    </li>
-                  ):null}
-                </ul>
-              </nav>
+              {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
+              <NavBar tokens={tokens} setTokens={setTokens} />
             </div>
           </div>
         </header>
@@ -197,25 +160,22 @@ export default function App() {
             <h1 className="govuk-heading-xl">Customised page template</h1>
 
             <Switch>
-            
               <Route path="/signUp">
-                <Signup />
+                <Signup  email={email} setEmail={setEmail}/>
               </Route>
               <Route path="/forgotPassword">
                 <ForgotPassword />
               </Route>
               <Route path="/profile">
-              {tokens ? <Profile email={tokens.idToken.payload.email} /> : null}
-               <Status tokens={tokens} setTokens={setTokens} />
+                {tokens ? (
+                  <Profile email={tokens.idToken.payload.email} />
+                ) : null}
               </Route>
-              <Route path="/Cofirmation">
-                <Confirmation />
+              <Route path="/confirmation">
+                <Confirmation email={email}/>
               </Route>
               <Route path="/">
-                <Login
-                  tokens={tokens}
-                  setTokens={setTokens}
-                />
+                <Login tokens={tokens} setTokens={setTokens} />
               </Route>
             </Switch>
           </main>

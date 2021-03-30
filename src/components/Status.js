@@ -13,25 +13,13 @@ export default function StatusChange({ tokens, setTokens }) {
   //Within the return statement we have a turniry for if you are logged in the page
   //renders the log out button. otherwise it tells you to log in.
   return (
-    <div>
-      {tokens ? (
-        <div>
-         
-          <button
-            className="govuk-button"
-            data-module="govuk-button"
-            onClick={() => {
-              logout();
-              setTokens();
-              history.push("/");
-            }}
-          >
-            Logout
-          </button>
-        </div>
-      ) : (
-        "Please login below."
-      )}
-    </div>
+      <a className="govuk-header__link" href="/"
+        onClick={() => {
+          logout();
+          setTokens();
+        }}
+      >
+        {tokens.idToken.payload.email} : Sign out
+      </a>
   );
 }

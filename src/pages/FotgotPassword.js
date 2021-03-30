@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CognitoUser } from "amazon-cognito-identity-js";
 import Pool from "../UserPool";
+import { useHistory } from "react-router";
 
 // Function for the user to be able to get a new password
 export default function ForgotPassword() {
@@ -9,8 +10,8 @@ export default function ForgotPassword() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
   const [error, setError] = useState("");
+  const history = useHistory();
 
   // function to check if the user is in the system
   const getUser = () => {
@@ -49,6 +50,7 @@ export default function ForgotPassword() {
     getUser().confirmPassword(code, password, {
       onSuccess: (data) => {
         console.log("onSuccess", data);
+        history.push("/");
       },
       onFailure: (err) => {
         console.log("onFailure", err);

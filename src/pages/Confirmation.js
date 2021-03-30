@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Confirmation({email}){
-
+console.log({email})
   //In order for the profile page we use getSession to see whether the user is a user or not.
   //Next we then take the information stored in state and display it on the screen.
   return (
@@ -21,10 +21,11 @@ export default function Confirmation({email}){
           <h2 className="govuk-heading-m">What happens next</h2>
 
           <p className="govuk-body">
-            We’ve sent you an email with a verification link.
+          We have sent you a confirmation email, with a verification link inside. 
+          
           </p>
           <p className="govuk-body">
-            Once you have verfied your email address you will be able to log in and access the service.
+           To activate your account, click the link within the email. Once this is confirmed you can log in with your email address and password.
           </p>
         </div>
       </div>

@@ -3,9 +3,8 @@ import UserPool from "../UserPool";
 
 import { useHistory } from "react-router";
 
-export default function Signup() {
+export default function Signup({email, setEmail}) {
   //Here we set empty states for the input fields, err and the visibility of password.
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordDup, setPasswordDup] = useState("");
   const [err, setErr] = useState("");
@@ -22,11 +21,10 @@ export default function Signup() {
         if (err) {
           setErr(err.message);
         } else {
-          history.push("/Confirmation");
+          history.push("/confirmation");
         }
-        console.log(data);
-        history.push("/Confirmation");
-      });
+        console.log({data});
+              });
     } else {
       setErr("Passwords do not match, please re-enter and try again");
     }
