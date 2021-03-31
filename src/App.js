@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
 import Confirmation from "./pages/Confirmation";
+import ForgotPasswordStage2 from "./pages/ForgotPasswordStage2";
 
 //Componenets
 import CookieBanner from "./components/CookieBanner";
@@ -57,13 +58,14 @@ export default function App() {
               <Route path="/signUp">
                 <Signup email={email} setEmail={setEmail} />
               </Route>
+              <Route path="/forgotPassword/stage2">
+                <ForgotPasswordStage2 email={email} setEmail={setEmail} />
+              </Route>
               <Route path="/forgotPassword">
-                <ForgotPassword />
+                <ForgotPassword email={email} setEmail={setEmail} />
               </Route>
               <Route path="/profile">
-                {tokens ? (
-                  <Profile email={tokens.idToken.payload.email} />
-                ) : null}
+                {tokens ? <Profile email={email} /> : null}
               </Route>
               <Route path="/confirmation">
                 <Confirmation email={email} />
