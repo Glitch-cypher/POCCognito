@@ -14,6 +14,7 @@ import { AccountContext } from "./components/Accounts";
 import Header from "./components/Header";
 import PhaseBanner from "./components/PhaseBanner.js";
 import Footer from "./components/Footer";
+import StarterPage from "./pages/StartPage";
 
 export default function App() {
   const { getSession } = useContext(AccountContext);
@@ -51,8 +52,6 @@ export default function App() {
             id="main-content"
             role="main"
           >
-            <h1 className="govuk-heading-xl">Customised page template</h1>
-
             <Switch>
               <Route path="/signUp">
                 <Signup email={email} setEmail={setEmail} />
@@ -68,8 +67,11 @@ export default function App() {
               <Route path="/confirmation">
                 <Confirmation email={email} />
               </Route>
-              <Route path="/">
+              <Route path="/login">
                 <Login tokens={tokens} setTokens={setTokens} />
+              </Route>
+              <Route path="/">
+                <StarterPage />
               </Route>
             </Switch>
           </main>

@@ -33,7 +33,7 @@ export default function Login({ setTokens }) {
             Please Login Below
           </label>
         </h1>
-        <label className="govuk-label" for="three-quarters">
+        <label class="govuk-heading-m" for="three-quarters">
           Email Address
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -47,7 +47,7 @@ export default function Login({ setTokens }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <label className="govuk-label" for="three-quarters">
+        <label class="govuk-heading-m" for="three-quarters">
           Password
         </label>
         <input
