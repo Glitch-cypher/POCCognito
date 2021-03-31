@@ -1,7 +1,7 @@
 function getCode() {
   browser.url("https://mail.google.com/");
   const emailList = $(".zA");
-  const emailCode = $('[class="a3s aiL "]');
+  const emailCode = $('[className="a3s aiL "]');
   emailList.waitForDisplayed();
   emailList.click();
   console.log(emailCode.value);

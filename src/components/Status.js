@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-
 //Componenets
 import { AccountContext } from "./Accounts";
 export default function StatusChange({ tokens, setTokens }) {

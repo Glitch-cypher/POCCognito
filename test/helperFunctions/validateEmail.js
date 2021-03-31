@@ -4,7 +4,7 @@ function validateEmail(email, password) {
   const nextButton = $(".VfPpkd-LgbsSe");
   const passwordCheckBox = $(".YZrg6");
   const emailList = $(".zA");
-  const emailCode = $('[class="a3s aiL "]');
+  const emailCode = $('[className="a3s aiL "]');
   const emailLink = $(".gs a");
   const meatballIcon = $(".ajV");
   Input.setValue(email);
