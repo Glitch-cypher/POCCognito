@@ -103,7 +103,7 @@ export default function Signup({ email, setEmail }) {
         <div className="govuk-label">
         <h2 className="heading-medium gutter-none-top">Already got an account?</h2>
         <p className="text">
-        <a  href="/signup">
+        <a  href="/login">
             Sign in
           </a> if you already have an account.
         </p>
