@@ -60,31 +60,7 @@ export default function Login({ setTokens }) {
             setPassword(event.target.value);
           }}
         />
-        <span
-          id="national-insurance-number-error"
-          className="govuk-error-message"
-        >
-          <span className="govuk-visually-hidden">Error:</span> {err}
-        </span>{" "}
-        <details className="govuk-details" data-module="govuk-details">
-          <summary className="govuk-details__summary">
-            <span className="govuk-details__summary-text">
-              Problem Signing in?
-            </span>
-          </summary>
-          <div className="govuk-details__text">
-            <li className="govuk-header__navigation-item">
-              <li>
-                <a
-                  className="govuk-header__navigation-item"
-                  href="/forgotpassword"
-                >
-                  Forgotten your password?
-                </a>
-              </li>
-            </li>
-          </div>
-        </details>
+        <br />
         <button
           className="govuk-button"
           data-module="govuk-button"
@@ -92,6 +68,15 @@ export default function Login({ setTokens }) {
         >
           Login
         </button>
+        <p>
+          <a className="govuk-label" href="/forgotpassword">
+            Forgotten your password?
+          </a>
+          <br />
+          <a className="govuk-label" href="/signup">
+            Create an account to use this service
+          </a>
+        </p>
       </form>
     </div>
   );
