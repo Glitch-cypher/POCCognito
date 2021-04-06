@@ -96,6 +96,14 @@ Create an account           </label>
         />
         <br />
         <br />
+        <div id="event-name-hint" className="govuk-hint">
+        Must contain at least 8 characters with at least 1 capital letter, 1
+        lower case letter, 1 number and 1 symbol.
+      </div>
+      <div id="event-name-hint" className="govuk-hint">
+       Do not use your username, a
+        common word like 'password' or a sequence like '123'.
+      </div>
         <span
         
           id="national-insurance-number-error"
