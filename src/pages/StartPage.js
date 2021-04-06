@@ -1,6 +1,4 @@
-import React, { useState, useContext } from "react";
-
-//Componenets
+import React from "react";
 
 export default function StarterPage() {
   return (
@@ -34,7 +32,7 @@ export default function StarterPage() {
             <br/><br/>
 
             <a
-              href="/Signin"
+              href="/signin"
               role="button"
               dragabble="false"
               className="govuk-button"
