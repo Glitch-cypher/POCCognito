@@ -9,7 +9,7 @@ export default function Login({ setTokens }) {
   const [err, setErr] = useState("");
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
-console.log(err)
+  console.log(err);
   // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +27,10 @@ console.log(err)
 
   return (
     <div id="loginPage">
-      <form className="govuk-form-group govuk-form-group--error" onSubmit={onSubmit}>
+      <form
+        className="govuk-form-group govuk-form-group--error"
+        onSubmit={onSubmit}
+      >
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Please Login Below
@@ -60,7 +63,29 @@ console.log(err)
             setPassword(event.target.value);
           }}
         />
-        <br />
+        <span
+          id="national-insurance-number-error"
+          className="govuk-error-message"
+        >
+          <span className="govuk-visually-hidden">Error:</span> {err}
+        </span>{" "}
+        <details className="govuk-details" data-module="govuk-details">
+          <summary className="govuk-details__summary">
+            <span className="govuk-details__summary-text">
+              Problem Signing in?
+            </span>
+          </summary>
+          <div className="govuk-details__text">
+            <li className="govuk-header__navigation-item">
+              <a
+                className="govuk-header__navigation-item"
+                href="/forgotpassword"
+              >
+                Forgotten your password?
+              </a>
+            </li>
+          </div>
+        </details>
         <button
           className="govuk-button"
           data-module="govuk-button"

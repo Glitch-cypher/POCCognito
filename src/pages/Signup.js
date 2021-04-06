@@ -21,7 +21,7 @@ export default function Signup({ email, setEmail }) {
         if (err) {
           setErr(err.message);
         } else {
-          history.push("/confirmation");
+          history.push("/confirmation/registration");
         }
         console.log({ data });
       });

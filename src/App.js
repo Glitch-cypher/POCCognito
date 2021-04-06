@@ -6,7 +6,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
-import Confirmation from "./pages/Confirmation";
+import ConfirmationRegistration from "./pages/confirmationPages/ConfirmationRegistration";
+import ConfirmationPasswordReset from "./pages/confirmationPages/ConfirmationPasswordReset";
+import ConfirmationCodeSent from "./pages/confirmationPages/ConfirmationCodeSent";
 import ForgotPasswordStage2 from "./pages/ForgotPasswordStage2";
 
 //Componenets
@@ -21,6 +23,7 @@ export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
   const [email, setEmail] = useState();
+  const [open, setOpen] = useState(true);
   useEffect(() => {
     getSession().then((session) => {
       console.log(session);
@@ -39,7 +42,11 @@ export default function App() {
           document.body.classNameName = ((document.body.classNameName) ?
           document.body.classNameName + ' js-enabled' : 'js-enabled');
         </script>
-        <CookieBanner serviceName="[name of service]" />
+        <CookieBanner
+          open={open}
+          setOpen={setOpen}
+          serviceName="[name of service]"
+        />
 
         <a href="#main-content" className="govuk-skip-link">
           Skip to main content
@@ -66,8 +73,14 @@ export default function App() {
               <Route path="/profile">
                 {tokens ? <Profile email={email} /> : null}
               </Route>
-              <Route path="/confirmation">
-                <Confirmation email={email} />
+              <Route path="/confirmation/registration">
+                <ConfirmationRegistration email={email} />
+              </Route>
+              <Route path="/confirmation/passwordReset">
+                <ConfirmationPasswordReset email={email} />
+              </Route>
+              <Route path="/confirmation/codeSent">
+                <ConfirmationCodeSent email={email} />
               </Route>
               <Route path="/login">
                 <Login tokens={tokens} setTokens={setTokens} />
