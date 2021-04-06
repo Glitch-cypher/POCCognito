@@ -39,49 +39,12 @@ export default function ForgotPassword({ email, setEmail }) {
     <form onSubmit={sendCode}>
       {/* displays error messages */}
       <p>{error}</p>
-
-      {/* stage 1 is where the user puts in their email in order to recieve a code. moves on to stage 2 once an email that is in the system is selected */}
-      {stage === 1 && (
-        <form onSubmit={sendCode}>
-          <h2 className="govuk-label-wrapper">
-            <label className="govuk-label govuk-label--l" htmlFor="event-name">
-              Enter your email address to reset your password
-            </label>
-          </h2>
-          <label className="govuk-label" for="three-quarters">
-          Email Address
-        </label>
-        <input
-          className="govuk-input govuk-!-width-three-quarters"
-            name="three-quarters"
-            id="email"
-            value={email}
-            placeholder="Enter Email Address"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <button
-            className="govuk-button"
-            data-module="govuk-button"
-            type="submit"
-          >
-            Send verification code
-          </button>
-        </form>
-      )}
-      {/* stage 2 is the user inputting their code that has been emailed to them and typing out their new password twice to ensure there are no typos */}
-      {stage === 2 && (
-        <form onSubmit={resetPassword}>
-          <h2 className="govuk-label-wrapper">
-            <label className="govuk-label govuk-label--l" htmlFor="event-name">
-              Enter the information below to reset your password
-            </label>
-          </h2>
-          <label className="govuk-label" for="three-quarters">
-          Verification Code
-
+      <h2 className="govuk-label-wrapper">
+        <label className="govuk-label govuk-label--l" htmlFor="event-name">
+          Enter your email address to reset your password
         </label>
       </h2>
-      <label className="govuk-heading-m" for="three-quarters">
+      <label className="govuk-label" for="three-quarters">
         Email Address
       </label>
       <input
@@ -92,19 +55,11 @@ export default function ForgotPassword({ email, setEmail }) {
         placeholder="Enter Email Address"
         onChange={(event) => setEmail(event.target.value)}
       />
-      <br/>
-      <br/>
+      <br />
+      <br />
       <button className="govuk-button" data-module="govuk-button" type="submit">
         Send verification code
       </button>
-      <div className="govuk-label">
-        <h2 className="govuk-heading-m">Already have a verification code?</h2>
-      <p className="text">
-        <a  href="/forgotPassword/stage2">
-            Click here 
-          </a> to reset your password.
-        </p>
-        </div>
     </form>
   );
 }
