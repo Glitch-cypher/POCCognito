@@ -6,10 +6,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
-import ConfirmationRegistration from "./pages/confirmationPages/ConfirmationRegistration";
-import ConfirmationPasswordReset from "./pages/confirmationPages/ConfirmationPasswordReset";
-import ConfirmationCodeSent from "./pages/confirmationPages/ConfirmationCodeSent";
-import ForgotPasswordStage2 from "./pages/ForgotPasswordStage2";
+import Confirmation from "./pages/Confirmation";
 
 //Componenets
 import CookieBanner from "./components/CookieBanner";
@@ -17,13 +14,11 @@ import { AccountContext } from "./components/Accounts";
 import Header from "./components/Header";
 import PhaseBanner from "./components/PhaseBanner.js";
 import Footer from "./components/Footer";
-import StarterPage from "./pages/StartPage";
 
 export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
   const [email, setEmail] = useState();
-  const [open, setOpen] = useState(true);
   useEffect(() => {
     getSession().then((session) => {
       console.log(session);
@@ -42,11 +37,7 @@ export default function App() {
           document.body.classNameName = ((document.body.classNameName) ?
           document.body.classNameName + ' js-enabled' : 'js-enabled');
         </script>
-        <CookieBanner
-          open={open}
-          setOpen={setOpen}
-          serviceName="[name of service]"
-        />
+        <CookieBanner serviceName="[name of service]" />
 
         <a href="#main-content" className="govuk-skip-link">
           Skip to main content
@@ -60,35 +51,25 @@ export default function App() {
             id="main-content"
             role="main"
           >
-            <h1 className="govuk-heading-xl">POC Portal</h1>
+            <h1 className="govuk-heading-xl">Customised page template</h1>
 
             <Switch>
-              <Route path="/createAnAccount">
+              <Route path="/signUp">
                 <Signup email={email} setEmail={setEmail} />
               </Route>
-              <Route path="/forgotPassword/stage2">
-                <ForgotPasswordStage2 email={email} setEmail={setEmail} />
-              </Route>
               <Route path="/forgotPassword">
-                <ForgotPassword email={email} setEmail={setEmail} />
+                <ForgotPassword />
               </Route>
               <Route path="/profile">
-                {tokens ? <Profile email={email} /> : null}
+                {tokens ? (
+                  <Profile email={tokens.idToken.payload.email} />
+                ) : null}
               </Route>
-              <Route path="/confirmation/registration">
-                <ConfirmationRegistration email={email} />
-              </Route>
-              <Route path="/confirmation/passwordReset">
-                <ConfirmationPasswordReset email={email} />
-              </Route>
-              <Route path="/confirmation/codeSent">
-                <ConfirmationCodeSent email={email} />
-              </Route>
-              <Route path="/login">
-                <Login tokens={tokens} setTokens={setTokens} />
+              <Route path="/confirmation">
+                <Confirmation email={email} />
               </Route>
               <Route path="/">
-                <StarterPage />
+                <Login tokens={tokens} setTokens={setTokens} />
               </Route>
             </Switch>
           </main>
