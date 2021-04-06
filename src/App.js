@@ -81,10 +81,10 @@ export default function App() {
               <Route path="/confirmation/passwordReset">
                 <ConfirmationPasswordReset email={email} />
               </Route>
-              <Route path="/confirmation/codeSent">
+              <Route path="/confirmation/codesent">
                 <ConfirmationCodeSent email={email} />
               </Route>
-              <Route path="/Signin">
+              <Route path="/signin">
                 <Signin tokens={tokens} setTokens={setTokens} />
               </Route>
               <Route path="/">

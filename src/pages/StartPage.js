@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
-
-//Componenets
+import React from "react";
 
 export default function StarterPage() {
   return (
     <div className="govuk-width-container">
       <main className="govuk-main-wrapper" id="main-content" role="main">
-        <h1 className="govuk-heading-xl">Sign in or create an account</h1>
         <div className="govuk-grid-row">
+          <h1 className="govuk-heading-xl">Sign in or create an account</h1>
           <div className="govuk-grid-column-one-half">
             <h2 className="govuk-heading-m">Create an account</h2>
             <p className="govuk-label">
@@ -32,7 +30,7 @@ export default function StarterPage() {
               Select if you already have an account for this service
             </p>
             <a
-              href="/Signin"
+              href="/signin"
               role="button"
               dragabble="false"
               className="govuk-button"
