@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router";
+import serviceName from "../variables";
 //Componenets
 import { AccountContext } from "../components/Accounts";
 
@@ -34,7 +35,7 @@ export default function Login({ setTokens }) {
       >
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Sign in to your POC portal{" "}
+            Sign in to your {serviceName}{" "}
           </label>
         </h1>
         <label className="govuk-heading-m" htmlFor="three-quarters">

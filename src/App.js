@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import serviceName from "./variables";
 //Pages
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -60,7 +60,7 @@ export default function App() {
             id="main-content"
             role="main"
           >
-            <h1 className="govuk-heading-xl">POC Portal</h1>
+            <h1 className="govuk-heading-xl">{serviceName}</h1>
 
             <Switch>
               <Route path="/signUp">
