@@ -7,13 +7,14 @@ export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const [emailErr, setEmailErr] = useState("");
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
-  console.log(err);
   // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
     setErr("");
+    setEmailErr("");
     authenticate(email, password)
       .then((data) => {
         console.log("logged in!", data);
@@ -22,16 +23,15 @@ export default function Login({ setTokens }) {
       })
       .catch((err) => {
         setErr(err.message);
-        console.log(err.message)
+        setEmailErr(`Enter an email
+        address in the correct format, like names@example.com`);
+        console.log(err.message);
       });
   };
 
   return (
     <div id="loginPage">
-      <form
-        className="govuk-form-group govuk-form-group--error"
-        onSubmit={onSubmit}
-      >
+      <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Please Login Below
@@ -51,10 +51,11 @@ export default function Login({ setTokens }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-
-        <br/>
-        <br/>
-
+        <br />
+        <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {emailErr}
+        </span>
+        <br />
         <label className="govuk-heading-m" for="three-quarters">
           Password
         </label>
@@ -68,20 +69,11 @@ export default function Login({ setTokens }) {
             setPassword(event.target.value);
           }}
         />
-
         <br />
-        <br/>
+        <br />
         <span id="email-error" className="govuk-error-message">
           <span className="govuk-visually-hidden">Error:</span> {err}
         </span>
-        <br/>
-
-        <span
-          id="national-insurance-number-error"
-          className="govuk-error-message"
-        >
-          <span className="govuk-visually-hidden">Error:</span> {err}
-        </span>{" "}
         <details className="govuk-details" data-module="govuk-details">
           <summary className="govuk-details__summary">
             <span className="govuk-details__summary-text">
@@ -99,7 +91,6 @@ export default function Login({ setTokens }) {
             </li>
           </div>
         </details>
-
         <button
           className="govuk-button"
           data-module="govuk-button"
@@ -107,7 +98,6 @@ export default function Login({ setTokens }) {
         >
           Login
         </button>
-
         <p>
           <a className="govuk-label" href="/forgotpassword">
             Forgotten your password?
