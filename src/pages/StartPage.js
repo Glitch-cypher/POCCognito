@@ -6,7 +6,7 @@ export default function StarterPage() {
   return (
     <div className="govuk-width-container">
       <main className="govuk-main-wrapper" id="main-content" role="main">
-        <h1 className="govuk-heading-xl">Sign in or create an account</h1>
+        <h1 className="govuk-heading-xl">Create an account or sign in</h1>
         <div className="govuk-grid-row">
           <div className="govuk-grid-column-one-half">
             <h2 className="govuk-heading-m">Create an account</h2>
