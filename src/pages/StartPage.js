@@ -15,7 +15,7 @@ export default function StarterPage() {
             </p>
 
             <a
-              href="/signUp"
+              href="/createaccount"
               role="button"
               draggable="false"
               className="govuk-button"
@@ -32,7 +32,7 @@ export default function StarterPage() {
               Select if you already have an account for this service
             </p>
             <a
-              href="/login"
+              href="/Signin"
               role="button"
               dragabble="false"
               className="govuk-button"
