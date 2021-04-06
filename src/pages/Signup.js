@@ -24,7 +24,7 @@ export default function Signup({ email, setEmail }) {
           setEmailErr(`Enter an email
             address in the correct format, like names@example.com`);
         } else {
-          history.push("/confirmation");
+          history.push("/confirmation/registration");
         }
         console.log({ data });
       });
@@ -59,12 +59,14 @@ export default function Signup({ email, setEmail }) {
           placeholder="Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
+
         <span id="email-error" className="govuk-error-message">
           <span className="govuk-visually-hidden">Error:</span> {emailErr}
         </span>
         <br />
         <br />
         <label class="govuk-heading-m" for="three-quarters">
+
           Create password
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -86,8 +88,10 @@ export default function Signup({ email, setEmail }) {
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
+
         <br />
         <br />
+
         <label className="govuk-heading-m" for="three-quarters">
           Re-type your password
         </label>
