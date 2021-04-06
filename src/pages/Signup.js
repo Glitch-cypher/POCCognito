@@ -35,8 +35,7 @@ export default function Signup({ email, setEmail }) {
       <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Please Register Below
-          </label>
+Create an account           </label>
         </h1>
 
         <label className="govuk-label" for="email">
@@ -61,11 +60,7 @@ export default function Signup({ email, setEmail }) {
         <label className="govuk-label" for="three-quarters">
           Create password
         </label>
-        <div id="event-name-hint" className="govuk-hint">
-          Must contain at least 8 characters with at least 1 capital letter, 1
-          lower case letter, 1 number and 1 symbol. Do not use your username, a
-          common word like 'password' or a sequence like '123'.
-        </div>
+        
         <input
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
@@ -86,8 +81,14 @@ export default function Signup({ email, setEmail }) {
           value={passwordDup}
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
-        />
+        /><div id="event-name-hint" className="govuk-hint">
+        Must contain at least 8 characters with at least 1 capital letter, 1
+        lower case letter, 1 number and 1 symbol. Do not use your username, a
+        common word like 'password' or a sequence like '123'.
+      </div>
+   
         <span
+        
           id="national-insurance-number-error"
           className="govuk-error-message"
         >

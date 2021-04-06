@@ -30,8 +30,7 @@ export default function Login({ setTokens }) {
       <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Please Login Below
-          </label>
+Sign in to your POC portal          </label>
         </h1>
         <label className="govuk-label" for="three-quarters">
           Email Address

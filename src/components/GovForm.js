@@ -3,8 +3,7 @@ export default function Form() {
     <form onSubmit={onSubmit}>
       <h1 className="govuk-label-wrapper">
         <label className="govuk-label govuk-label--l" htmlFor="event-name">
-          Please Register Below
-        </label>
+Create an account         </label>
       </h1>
 
       <Input
