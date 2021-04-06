@@ -22,6 +22,7 @@ export default function Login({ setTokens }) {
       })
       .catch((err) => {
         setErr(err.message);
+        console.log(err.message)
       });
   };
 
@@ -47,6 +48,8 @@ export default function Login({ setTokens }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
+        <br/>
+        <br/>
         <label className="govuk-heading-m" for="three-quarters">
           Password
         </label>
@@ -61,6 +64,11 @@ export default function Login({ setTokens }) {
           }}
         />
         <br />
+        <br/>
+        <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {err}
+        </span>
+        <br/>
         <button
           className="govuk-button"
           data-module="govuk-button"
@@ -68,6 +76,7 @@ export default function Login({ setTokens }) {
         >
           Login
         </button>
+
         <p>
           <a className="govuk-label" href="/forgotpassword">
             Forgotten your password?
