@@ -6,14 +6,14 @@ import { AccountContext } from "../components/Accounts";
 export default function Login({ setTokens }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [err, setErr] = useState("");
+  const [err, setErr] = useState();
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
   console.log(err);
   // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
-    setErr("");
+    setErr();
     authenticate(email, password)
       .then((data) => {
         console.log("logged in!", data);
@@ -22,21 +22,22 @@ export default function Login({ setTokens }) {
       })
       .catch((err) => {
         setErr(err.message);
-        console.log(err.message)
+        console.log(err.message);
       });
   };
 
   return (
     <div id="loginPage">
       <form
-        className="govuk-form-group govuk-form-group--error"
+        className={`govuk-form-group ${err ? "govuk-form-group--error" : null}`}
         onSubmit={onSubmit}
       >
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-Sign in to your POC portal          </label>
+            Sign in to your POC portal{" "}
+          </label>
         </h1>
-        <label className="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Email Address
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -50,11 +51,9 @@ Sign in to your POC portal          </label>
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-
-        <br/>
-        <br/>
-
-        <label className="govuk-heading-m" for="three-quarters">
+        <br />
+        <br />
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Password
         </label>
         <input
@@ -67,14 +66,12 @@ Sign in to your POC portal          </label>
             setPassword(event.target.value);
           }}
         />
-
         <br />
-        <br/>
+        <br />
         <span id="email-error" className="govuk-error-message">
           <span className="govuk-visually-hidden">Error:</span> {err}
         </span>
-        <br/>
-
+        <br />
         <span
           id="national-insurance-number-error"
           className="govuk-error-message"
@@ -98,7 +95,6 @@ Sign in to your POC portal          </label>
             </li>
           </div>
         </details>
-
         <button
           className="govuk-button"
           data-module="govuk-button"
@@ -106,7 +102,6 @@ Sign in to your POC portal          </label>
         >
           Login
         </button>
-
         <p>
           <a className="govuk-label" href="/forgotpassword">
             Forgotten your password?
