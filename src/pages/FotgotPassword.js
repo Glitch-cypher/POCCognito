@@ -51,6 +51,7 @@ export default function ForgotPassword({ email, setEmail }) {
         className="govuk-input govuk-!-width-three-quarters"
         name="three-quarters"
         id="email"
+        type="email"
         value={email}
         placeholder="Enter Email Address"
         onChange={(event) => setEmail(event.target.value)}

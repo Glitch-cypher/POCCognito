@@ -18,8 +18,8 @@ export default function Signup({ email, setEmail }) {
     setEmailErr("");
     if (passwordDup === password) {
       //the userPool takes in 5 arguments and then console.logs if it is successful or not at creating an account.
-      UserPool.signUp(email, password, [], null, (emailErr, err, data) => {
-        if ((err, emailErr)) {
+      UserPool.signUp(email, password, [], null, (err, data) => {
+        if ((err)) {
           setErr(err.message);
           setEmailErr(`Enter an email
             address in the correct format, like names@example.com`);
@@ -30,8 +30,8 @@ export default function Signup({ email, setEmail }) {
       });
     } else {
       setErr("Passwords do not match, please re-enter and try again");
-      setEmailErr(`Enter an email
-      address in the correct format, like names@example.com`);
+      // setEmailErr(`Enter an email
+      // address in the correct format, like names@example.com`);
     }
   };
   console.log(err.message);
@@ -54,6 +54,7 @@ Create an account           </label>
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
           id="email"
+          type="email"
           value={email}
           placeholder="Email Address"
           onChange={(event) => setEmail(event.target.value)}
