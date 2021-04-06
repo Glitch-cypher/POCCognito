@@ -71,11 +71,11 @@ export default function ForgotPassword() {
               Enter your email address to reset your password
             </label>
           </h2>
-          <label class="govuk-label" for="three-quarters">
+          <label className="govuk-label" for="three-quarters">
           Email Address
         </label>
         <input
-          class="govuk-input govuk-!-width-three-quarters"
+          className="govuk-input govuk-!-width-three-quarters"
             name="three-quarters"
             id="email"
             value={email}

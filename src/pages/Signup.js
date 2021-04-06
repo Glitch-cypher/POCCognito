@@ -8,28 +8,33 @@ export default function Signup({ email, setEmail }) {
   const [password, setPassword] = useState("");
   const [passwordDup, setPasswordDup] = useState("");
   const [err, setErr] = useState("");
-
+const [emailErr, setEmailErr] = useState("");
   const history = useHistory();
 
   //When the onsubmit button is clocked this function is called.
   const onSubmit = (event) => {
     event.preventDefault();
     setErr("");
+    setEmailErr("")
     if (passwordDup === password) {
       //the userPool takes in 5 arguments and then console.logs if it is successful or not at creating an account.
-      UserPool.signUp(email, password, [], null, (err, data) => {
-        if (err) {
+      UserPool.signUp(email, password, [], null, (emailErr, err, data) => {
+        if (err, emailErr) {
           setErr(err.message);
+          setEmailErr(`Enter an email
+            address in the correct format, like names@example.com`)
         } else {
           history.push("/confirmation");
         }
         console.log({ data });
       });
     } else {
-      setErr("Passwords do not match, please re-enter and try again");
+      setErr("Passwords do not match, please re-enter and try again")
+      setEmailErr(`Enter an email
+      address in the correct format, like names@example.com`);
     }
   };
-
+console.log(err.message)
   return (
     <div id="signupPage">
       <form onSubmit={onSubmit}>
@@ -39,16 +44,13 @@ export default function Signup({ email, setEmail }) {
           </label>
         </h1>
 
-        <label class="govuk-heading-m" for="email">
+        <label className="govuk-heading-m" for="email">
           Enter Email Address
         </label>
         <div id="email-hint" className="govuk-hint">
           Your email address will be used as a username.
         </div>
-        <span id="email-error" className="govuk-error-message">
-          <span className="govuk-visually-hidden">Error:</span>Enter an email
-          address in the correct format, like name@example.com
-        </span>
+       
         <input
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
@@ -57,7 +59,11 @@ export default function Signup({ email, setEmail }) {
           placeholder="Email Address"
           onChange={(event) => setEmail(event.target.value)}
         />
-
+         <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {emailErr}
+        </span>
+        <br/>
+<br/>
         <label class="govuk-heading-m" for="three-quarters">
           Create password
         </label>
@@ -75,7 +81,9 @@ export default function Signup({ email, setEmail }) {
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <label class="govuk-heading-m" for="three-quarters">
+        <br/>
+        <br/>
+        <label className="govuk-heading-m" for="three-quarters">
           Re-type your password
         </label>
         <input
@@ -87,6 +95,8 @@ export default function Signup({ email, setEmail }) {
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
         />
+        <br/>
+        <br/>
         <span
           id="national-insurance-number-error"
           className="govuk-error-message"
