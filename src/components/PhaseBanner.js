@@ -9,8 +9,7 @@ export default function PhaseBanner() {
           This is a new service – your{" "}
           <a className="govuk-link" href="/">
             feedback
-          </a>
-          will help us to improve it.
+          </a> will help us to improve it.
         </span>
       </p>
     </div>

@@ -40,8 +40,7 @@ export default function Signup({ email, setEmail }) {
       <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Please Register Below
-          </label>
+Create an account           </label>
         </h1>
 
         <label className="govuk-heading-m" for="email">
@@ -69,16 +68,7 @@ export default function Signup({ email, setEmail }) {
 
           Create password
         </label>
-        <div id="event-name-hint" className="govuk-hint">
-          <p>
-            Must contain at least 8 characters with at least 1 capital letter, 1
-            lower case letter, 1 number and 1 symbol.{" "}
-          </p>
-          <p>
-            Do not use your username, a common word like 'password' or a
-            sequence like '123'.
-          </p>
-        </div>
+        
         <input
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
@@ -106,7 +96,16 @@ export default function Signup({ email, setEmail }) {
         />
         <br />
         <br />
+        <div id="event-name-hint" className="govuk-hint">
+        Must contain at least 8 characters with at least 1 capital letter, 1
+        lower case letter, 1 number and 1 symbol.
+      </div>
+      <div id="event-name-hint" className="govuk-hint">
+       Do not use your username, a
+        common word like 'password' or a sequence like '123'.
+      </div>
         <span
+        
           id="national-insurance-number-error"
           className="govuk-error-message"
         >
@@ -124,7 +123,7 @@ export default function Signup({ email, setEmail }) {
             Already got an account?
           </h2>
           <p className="text">
-            <a href="/login">Sign in</a> if you already have an account.
+            <a href="/Signin">Sign in</a> if you already have an account.
           </p>
         </div>
       </form>

@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import serviceName from "./variables";
 //Pages
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Createaccount from "./pages/createaccount";
+import Signin from "./pages/Signin";
 import ForgotPassword from "./pages/FotgotPassword";
 import Profile from "./pages/Profile";
 import ConfirmationRegistration from "./pages/confirmationPages/ConfirmationRegistration";
@@ -60,9 +60,11 @@ export default function App() {
             id="main-content"
             role="main"
           >
+            <h1 className="govuk-heading-xl">{serviceName}</h1>
+
             <Switch>
-              <Route path="/createAnAccount">
-                <Signup email={email} setEmail={setEmail} />
+              <Route path="/createaccount">
+                <Createaccount email={email} setEmail={setEmail} />
               </Route>
               <Route path="/forgotPassword/stage2">
                 <ForgotPasswordStage2 email={email} setEmail={setEmail} />
@@ -79,11 +81,11 @@ export default function App() {
               <Route path="/confirmation/passwordReset">
                 <ConfirmationPasswordReset email={email} />
               </Route>
-              <Route path="/confirmation/codeSent">
+              <Route path="/confirmation/codesent">
                 <ConfirmationCodeSent email={email} />
               </Route>
-              <Route path="/login">
-                <Login tokens={tokens} setTokens={setTokens} />
+              <Route path="/signin">
+                <Signin tokens={tokens} setTokens={setTokens} />
               </Route>
               <Route path="/">
                 <StarterPage />

@@ -1,2 +1,2 @@
-const serviceName = "SERVICE NAME";
+const serviceName = "POC PORTAL";
 export default serviceName;

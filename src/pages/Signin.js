@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router";
+import serviceName from "../variables";
 //Componenets
 import { AccountContext } from "../components/Accounts";
 
@@ -34,10 +35,10 @@ export default function Login({ setTokens }) {
       <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-            Please Login Below
+            Sign in to your {serviceName}{" "}
           </label>
         </h1>
-        <label className="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Email Address
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -103,7 +104,7 @@ export default function Login({ setTokens }) {
             Forgotten your password?
           </a>
           <br />
-          <a className="govuk-label" href="/createAnAccount">
+          <a className="govuk-label" href="/createaccount">
             Create an account to use this service
           </a>
         </p>
