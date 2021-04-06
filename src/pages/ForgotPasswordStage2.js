@@ -23,7 +23,7 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
 
   const resetPassword = (event) => {
     event.preventDefault();
-    setError("");
+    setError();
     if (password !== confirmPassword) {
       setError("Passwords do not match, please re-enter and try again");
       return;
@@ -35,7 +35,7 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
         history.push("/confirmation/passwordReset");
       },
       onFailure: (err) => {
-        setError(err);
+        setError(err.message);
         console.log("onFailure", err);
       },
     });
