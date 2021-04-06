@@ -8,18 +8,21 @@ export default function Signup({ email, setEmail }) {
   const [password, setPassword] = useState("");
   const [passwordDup, setPasswordDup] = useState("");
   const [err, setErr] = useState("");
-
+  const [emailErr, setEmailErr] = useState("");
   const history = useHistory();
 
   //When the onsubmit button is clocked this function is called.
   const onSubmit = (event) => {
     event.preventDefault();
     setErr("");
+    setEmailErr("");
     if (passwordDup === password) {
       //the userPool takes in 5 arguments and then console.logs if it is successful or not at creating an account.
-      UserPool.signUp(email, password, [], null, (err, data) => {
-        if (err) {
+      UserPool.signUp(email, password, [], null, (emailErr, err, data) => {
+        if ((err, emailErr)) {
           setErr(err.message);
+          setEmailErr(`Enter an email
+            address in the correct format, like names@example.com`);
         } else {
           history.push("/confirmation/registration");
         }
@@ -27,9 +30,11 @@ export default function Signup({ email, setEmail }) {
       });
     } else {
       setErr("Passwords do not match, please re-enter and try again");
+      setEmailErr(`Enter an email
+      address in the correct format, like names@example.com`);
     }
   };
-
+  console.log(err.message);
   return (
     <div id="signupPage">
       <form onSubmit={onSubmit}>
@@ -45,10 +50,7 @@ export default function Signup({ email, setEmail }) {
         <div id="email-hint" className="govuk-hint">
           Your email address will be used as a username.
         </div>
-        <span id="email-error" className="govuk-error-message">
-          <span className="govuk-visually-hidden">Error:</span>Enter an email
-          address in the correct format, like name@example.com
-        </span>
+
         <input
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
@@ -58,13 +60,24 @@ export default function Signup({ email, setEmail }) {
           onChange={(event) => setEmail(event.target.value)}
         />
 
-        <label className="govuk-heading-m" for="three-quarters">
+        <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {emailErr}
+        </span>
+        <br />
+        <br />
+        <label class="govuk-heading-m" for="three-quarters">
+
           Create password
         </label>
         <div id="event-name-hint" className="govuk-hint">
-          Must contain at least 8 characters with at least 1 capital letter, 1
-          lower case letter, 1 number and 1 symbol. Do not use your username, a
-          common word like 'password' or a sequence like '123'.
+          <p>
+            Must contain at least 8 characters with at least 1 capital letter, 1
+            lower case letter, 1 number and 1 symbol.{" "}
+          </p>
+          <p>
+            Do not use your username, a common word like 'password' or a
+            sequence like '123'.
+          </p>
         </div>
         <input
           className="govuk-input govuk-!-width-three-quarters"
@@ -75,6 +88,10 @@ export default function Signup({ email, setEmail }) {
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
+
+        <br />
+        <br />
+
         <label className="govuk-heading-m" for="three-quarters">
           Re-type your password
         </label>
@@ -87,6 +104,8 @@ export default function Signup({ email, setEmail }) {
           placeholder="Confirm Password"
           onChange={(event) => setPasswordDup(event.target.value)}
         />
+        <br />
+        <br />
         <span
           id="national-insurance-number-error"
           className="govuk-error-message"
@@ -101,12 +120,12 @@ export default function Signup({ email, setEmail }) {
           Create an account
         </button>
         <div className="govuk-label">
-        <h2 className="heading-medium gutter-none-top">Already got an account?</h2>
-        <p className="text">
-        <a  href="/login">
-            Sign in
-          </a> if you already have an account.
-        </p>
+          <h2 className="heading-medium gutter-none-top">
+            Already got an account?
+          </h2>
+          <p className="text">
+            <a href="/login">Sign in</a> if you already have an account.
+          </p>
         </div>
       </form>
     </div>

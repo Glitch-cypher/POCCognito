@@ -61,7 +61,7 @@ export default function App() {
             role="main"
           >
             <Switch>
-              <Route path="/signUp">
+              <Route path="/createAnAccount">
                 <Signup email={email} setEmail={setEmail} />
               </Route>
               <Route path="/forgotPassword/stage2">
