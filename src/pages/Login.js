@@ -9,7 +9,7 @@ export default function Login({ setTokens }) {
   const [err, setErr] = useState("");
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
-
+  console.log(err);
   // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
@@ -22,17 +22,21 @@ export default function Login({ setTokens }) {
       })
       .catch((err) => {
         setErr(err.message);
+        console.log(err.message)
       });
   };
 
   return (
     <div id="loginPage">
-      <form onSubmit={onSubmit}>
+      <form
+        className="govuk-form-group govuk-form-group--error"
+        onSubmit={onSubmit}
+      >
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
 Sign in to your POC portal          </label>
         </h1>
-        <label className="govuk-label" for="three-quarters">
+        <label className="govuk-heading-m" for="three-quarters">
           Email Address
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -46,7 +50,11 @@ Sign in to your POC portal          </label>
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <label className="govuk-label" for="three-quarters">
+
+        <br/>
+        <br/>
+
+        <label className="govuk-heading-m" for="three-quarters">
           Password
         </label>
         <input
@@ -59,6 +67,14 @@ Sign in to your POC portal          </label>
             setPassword(event.target.value);
           }}
         />
+
+        <br />
+        <br/>
+        <span id="email-error" className="govuk-error-message">
+          <span className="govuk-visually-hidden">Error:</span> {err}
+        </span>
+        <br/>
+
         <span
           id="national-insurance-number-error"
           className="govuk-error-message"
@@ -73,17 +89,16 @@ Sign in to your POC portal          </label>
           </summary>
           <div className="govuk-details__text">
             <li className="govuk-header__navigation-item">
-              <li>
-                <a
-                  className="govuk-header__navigation-item"
-                  href="/forgotpassword"
-                >
-                  Forgotten your password?
-                </a>
-              </li>
+              <a
+                className="govuk-header__navigation-item"
+                href="/forgotpassword"
+              >
+                Forgotten your password?
+              </a>
             </li>
           </div>
         </details>
+
         <button
           className="govuk-button"
           data-module="govuk-button"
@@ -91,6 +106,16 @@ Sign in to your POC portal          </label>
         >
           Login
         </button>
+
+        <p>
+          <a className="govuk-label" href="/forgotpassword">
+            Forgotten your password?
+          </a>
+          <br />
+          <a className="govuk-label" href="/createAnAccount">
+            Create an account to use this service
+          </a>
+        </p>
       </form>
     </div>
   );

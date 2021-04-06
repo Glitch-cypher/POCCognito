@@ -1,8 +1,6 @@
 import Drawer from "@material-ui/core/Drawer";
-import { useState } from "react";
 
-export default function CookieBanner({ serviceName }) {
-  const [open, setOpen] = useState(true);
+export default function CookieBanner({ serviceName, open, setOpen }) {
   return (
     <Drawer open={open} anchor="top">
       <div
