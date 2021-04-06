@@ -4,7 +4,7 @@ import Status from "./Status";
 export default function Header({ tokens, setTokens }) {
   return (
     <header className="govuk-header " role="banner" data-module="govuk-header">
-      <div className="govuk-header__container app-width-container">
+      <div className="govuk-header__container govuk-width-container">
         <div className="govuk-header__logo">
           <a
             href="/"
