@@ -51,7 +51,7 @@ export default function App() {
             id="main-content"
             role="main"
           >
-            <h1 className="govuk-heading-xl">Customised page template</h1>
+            <h1 className="govuk-heading-xl">POC Portal</h1>
 
             <Switch>
               <Route path="/signUp">
