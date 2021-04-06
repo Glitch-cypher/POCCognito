@@ -13,7 +13,7 @@ return(
     <div className="govuk-grid-column-one-half">
         <h2 className="govuk-heading-m">Create an account</h2>
         <p className="govuk-label">Select if you have not used this service before</p>
-        <a href="/signup" role="button" draggable="false" className="govuk-button">Create account</a>
+        <a href="/createAnAccount" role="button" draggable="false" className="govuk-button">Create account</a>
         <br/>
         <br/>
     </div>
