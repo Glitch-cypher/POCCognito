@@ -23,7 +23,7 @@ export default function ForgotPassword({ email, setEmail }) {
     getUser().forgotPassword({
       onSuccess: (data) => {
         console.log("onSuccess", data);
-        history.push("/forgotPassword/stage2");
+        history.push("/confirmation/codeSent");
       },
       onFailure: (err) => {
         setError(err);

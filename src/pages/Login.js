@@ -74,14 +74,12 @@ export default function Login({ setTokens }) {
           </summary>
           <div className="govuk-details__text">
             <li className="govuk-header__navigation-item">
-              <li>
-                <a
-                  className="govuk-header__navigation-item"
-                  href="/forgotpassword"
-                >
-                  Forgotten your password?
-                </a>
-              </li>
+              <a
+                className="govuk-header__navigation-item"
+                href="/forgotpassword"
+              >
+                Forgotten your password?
+              </a>
             </li>
           </div>
         </details>

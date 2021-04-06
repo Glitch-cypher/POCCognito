@@ -32,7 +32,7 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
     getUser().confirmPassword(code, password, {
       onSuccess: (data) => {
         console.log("onSuccess", data);
-        history.push("/");
+        history.push("/confirmation/passwordReset");
       },
       onFailure: (err) => {
         setError(err);
