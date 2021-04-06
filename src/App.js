@@ -63,7 +63,7 @@ export default function App() {
             <h1 className="govuk-heading-xl">POC Portal</h1>
 
             <Switch>
-              <Route path="/createAnAccount">
+              <Route path="/signUp">
                 <Signup email={email} setEmail={setEmail} />
               </Route>
               <Route path="/forgotPassword/stage2">

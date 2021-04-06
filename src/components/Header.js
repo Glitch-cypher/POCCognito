@@ -39,12 +39,12 @@ export default function Header({ tokens, setTokens }) {
           </a>
         </div>
         <div className="govuk-header__content">
-          <a
+          {/* <a
             href="/"
             className="govuk-header__link govuk-header__link--service-name"
           >
             Service name
-          </a>
+          </a> */}
           {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
           <NavBar tokens={tokens} />
         </div>
