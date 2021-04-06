@@ -108,7 +108,7 @@ export default function Login({ setTokens }) {
             Forgotten your password?
           </a>
           <br />
-          <a className="govuk-label" href="/createAnAccount">
+          <a className="govuk-label" href="/createaccount">
             Create an account to use this service
           </a>
         </p>
