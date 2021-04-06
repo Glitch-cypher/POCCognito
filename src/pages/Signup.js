@@ -39,7 +39,7 @@ export default function Signup({ email, setEmail }) {
           </label>
         </h1>
 
-        <label class="govuk-heading-m" for="email">
+        <label className="govuk-heading-m" for="email">
           Enter Email Address
         </label>
         <div id="email-hint" className="govuk-hint">
@@ -58,7 +58,7 @@ export default function Signup({ email, setEmail }) {
           onChange={(event) => setEmail(event.target.value)}
         />
 
-        <label class="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" for="three-quarters">
           Create password
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -75,7 +75,7 @@ export default function Signup({ email, setEmail }) {
           placeholder="Password"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <label class="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" for="three-quarters">
           Re-type your password
         </label>
         <input

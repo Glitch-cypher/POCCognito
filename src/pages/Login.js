@@ -9,7 +9,7 @@ export default function Login({ setTokens }) {
   const [err, setErr] = useState("");
   const { authenticate } = useContext(AccountContext);
   const history = useHistory();
-
+console.log(err)
   // checks if the user is in the system and has entered the correct password and if so it will log them in
   const onSubmit = (event) => {
     event.preventDefault();
@@ -27,13 +27,13 @@ export default function Login({ setTokens }) {
 
   return (
     <div id="loginPage">
-      <form onSubmit={onSubmit}>
+      <form className="govuk-form-group govuk-form-group--error" onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
             Please Login Below
           </label>
         </h1>
-        <label class="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" for="three-quarters">
           Email Address
         </label>
         <div id="event-name-hint" className="govuk-hint">
@@ -47,7 +47,7 @@ export default function Login({ setTokens }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <label class="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" for="three-quarters">
           Password
         </label>
         <input

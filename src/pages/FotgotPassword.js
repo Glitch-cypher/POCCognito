@@ -44,20 +44,30 @@ export default function ForgotPassword({ email, setEmail }) {
           Enter your email address to reset your password
         </label>
       </h2>
-      <label class="govuk-label" for="three-quarters">
+      <label className="govuk-heading-m" for="three-quarters">
         Email Address
       </label>
       <input
-        class="govuk-input govuk-!-width-three-quarters"
+        className="govuk-input govuk-!-width-three-quarters"
         name="three-quarters"
         id="email"
         value={email}
         placeholder="Enter Email Address"
         onChange={(event) => setEmail(event.target.value)}
       />
+      <br/>
+      <br/>
       <button className="govuk-button" data-module="govuk-button" type="submit">
         Send verification code
       </button>
+      <div className="govuk-label">
+        <h2 className="govuk-heading-m">Already have a verification code?</h2>
+      <p className="text">
+        <a  href="/forgotPassword/stage2">
+            Click here 
+          </a> to reset your password.
+        </p>
+        </div>
     </form>
   );
 }

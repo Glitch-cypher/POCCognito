@@ -1,7 +1,5 @@
-import NavBar from "./NavBar";
-import Status from "./Status";
 
-export default function Header({ tokens, setTokens }) {
+export default function Header() {
   return (
     <header className="govuk-header " role="banner" data-module="govuk-header">
       <div className="govuk-header__container app-width-container">
@@ -38,16 +36,16 @@ export default function Header({ tokens, setTokens }) {
             </span>
           </a>
         </div>
-        <div className="govuk-header__content">
+        {/* <div className="govuk-header__content">
           <a
             href="/"
             className="govuk-header__link govuk-header__link--service-name"
           >
             Service name
           </a>
-          {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
-          <NavBar tokens={tokens} />
-        </div>
+          {/* {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
+          <NavBar tokens={tokens} /> */}
+        {/* </div>  */}
       </div>
     </header>
   );
