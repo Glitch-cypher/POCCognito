@@ -60,6 +60,8 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
         />
+        <br />
+        <br />
       </h2>
       <label className="govuk-label" htmlFor="three-quarters">
         Verification Code
@@ -74,6 +76,8 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
         placeholder="Verification Code"
         onChange={(event) => setCode(event.target.value)}
       />
+      <br />
+      <br />
       <label className="govuk-label" htmlFor="three-quarters">
         Create Password
       </label>
@@ -91,6 +95,8 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
         placeholder="Password"
         onChange={(event) => setPassword(event.target.value)}
       />
+      <br />
+      <br />
       <label className="govuk-label" htmlFor="three-quarters">
         Re-type your password
       </label>
@@ -102,7 +108,8 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
         placeholder="Password"
         onChange={(event) => setConfirmPassword(event.target.value)}
       />
-      <br></br>
+      <br />
+      <br />
       <button className="govuk-button" data-module="govuk-button" type="submit">
         Change password
       </button>
