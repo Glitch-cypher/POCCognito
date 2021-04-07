@@ -11,7 +11,8 @@ export default function StarterPage() {
             <p className="govuk-label">
               Select if you have not used this service before
             </p>
-<br/><br/>
+            <br />
+            <br />
             <a
               href="/createaccount"
               role="button"
@@ -29,7 +30,8 @@ export default function StarterPage() {
             <p className="govuk-label">
               Select if you already have an account for this service
             </p>
-            <br/><br/>
+            <br />
+            <br />
 
             <a
               href="/signin"
@@ -40,6 +42,12 @@ export default function StarterPage() {
             >
               Sign in
             </a>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       </main>
