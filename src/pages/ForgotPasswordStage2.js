@@ -15,6 +15,9 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
 
   // function to check if the user is in the system
   const getUser = () => {
+    if (!email) {
+      email = "no email";
+    }
     return new CognitoUser({
       Username: email.toLowerCase(),
       Pool,
@@ -82,15 +85,15 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
         Create Password
       </label>
       <div id="event-name-hint" className="govuk-hint">
-          <p>
-            Must contain at least 8 characters with at least 1 capital letter, 1
-            lower case letter, 1 number and 1 symbol.{" "}
-          </p>
-          <p>
-            Do not use your username, a common word like 'password' or a
-            sequence like '123'.
-          </p>
-        </div>
+        <p>
+          Must contain at least 8 characters with at least 1 capital letter, 1
+          lower case letter, 1 number and 1 symbol.{" "}
+        </p>
+        <p>
+          Do not use your username, a common word like 'password' or a sequence
+          like '123'.
+        </p>
+      </div>
 
       <input
         className="govuk-input govuk-!-width-three-quarters"

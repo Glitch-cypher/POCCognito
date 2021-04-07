@@ -11,6 +11,9 @@ export default function ForgotPassword({ email, setEmail }) {
 
   // function to check if the user is in the system
   const getUser = () => {
+    if (!email) {
+      email = "no email";
+    }
     return new CognitoUser({
       Username: email.toLowerCase(),
       Pool,
@@ -26,7 +29,7 @@ export default function ForgotPassword({ email, setEmail }) {
         history.push("/confirmation/codesent");
       },
       onFailure: (err) => {
-        setError(err);
+        setError(err.message);
         console.log("onFailure", err);
       },
       InputVerificationCode: (data) => {
