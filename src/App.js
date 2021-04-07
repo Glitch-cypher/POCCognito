@@ -18,12 +18,14 @@ import Header from "./components/Header";
 import PhaseBanner from "./components/PhaseBanner.js";
 import Footer from "./components/Footer";
 import StarterPage from "./pages/StartPage";
+import ls from "local-storage";
 
 export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
   const [email, setEmail] = useState();
-  const [open, setOpen] = useState(true);
+  // ls.set("open", true);
+  const [open, setOpen] = useState(ls.get("open"));
   useEffect(() => {
     getSession().then((session) => {
       setTokens(session);
@@ -42,6 +44,7 @@ export default function App() {
           document.body.classNameName + ' js-enabled' : 'js-enabled');
         </script>
         <CookieBanner
+          ls={ls}
           open={open}
           setOpen={setOpen}
           serviceName="[name of service]"
