@@ -46,26 +46,28 @@ export default function ForgotPasswordStage2({ email, setEmail }) {
   return (
     <form onSubmit={resetPassword}>
       {/* displays error messages */}
-      <p>{error}</p>
       <h2 className="govuk-label-wrapper">
         <label className="govuk-label govuk-label--l" htmlFor="event-name">
           Enter the information below to reset your password
         </label>
-        <label className="govuk-label" htmlFor="three-quarters">
-          Email
-        </label>
-        <input
-          className="govuk-input govuk-!-width-three-quarters"
-          name="three-quarters"
-          id="email"
-          type="email"
-          value={email}
-          placeholder="Email"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
-        <br />
       </h2>
+      <span id="email-error" className="govuk-error-message">
+        <span className="govuk-visually-hidden">Error:</span> {error}
+      </span>
+      <label className="govuk-label" htmlFor="three-quarters">
+        Email
+      </label>
+      <input
+        className="govuk-input govuk-!-width-three-quarters"
+        name="three-quarters"
+        id="email"
+        type="email"
+        value={email}
+        placeholder="Email"
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <br />
+      <br />
       <label className="govuk-label" htmlFor="three-quarters">
         Verification Code
       </label>

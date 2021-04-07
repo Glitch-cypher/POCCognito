@@ -41,7 +41,9 @@ export default function ForgotPassword({ email, setEmail }) {
   return (
     <form onSubmit={sendCode}>
       {/* displays error messages */}
-      <p>{error}</p>
+      <span id="email-error" className="govuk-error-message">
+        <span className="govuk-visually-hidden">Error:</span> {error}
+      </span>
       <h2 className="govuk-label-wrapper">
         <label className="govuk-label govuk-label--l" htmlFor="event-name">
           Enter your email address to reset your password
