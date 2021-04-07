@@ -19,10 +19,10 @@ export default function Signup({ email, setEmail }) {
     if (passwordDup === password) {
       //the userPool takes in 5 arguments and then console.logs if it is successful or not at creating an account.
       UserPool.signUp(email, password, [], null, (err, data) => {
-        if ((err)) {
+        if (err) {
           setErr(err.message);
-          setEmailErr(`Enter an email
-            address in the correct format, like names@example.com`);
+          // setEmailErr(`Enter an email
+          //   address in the correct format, like names@example.com`);
         } else {
           history.push("/confirmation/registration");
         }
@@ -34,16 +34,16 @@ export default function Signup({ email, setEmail }) {
       // address in the correct format, like names@example.com`);
     }
   };
-  console.log(err.message);
   return (
     <div id="signupPage">
       <form onSubmit={onSubmit}>
         <h1 className="govuk-label-wrapper">
           <label className="govuk-label govuk-label--l" htmlFor="event-name">
-Create an account           </label>
+            Create an account{" "}
+          </label>
         </h1>
 
-        <label className="govuk-heading-m" for="email">
+        <label className="govuk-heading-m" htmlFor="email">
           Enter Email Address
         </label>
         <div id="email-hint" className="govuk-hint">
@@ -65,11 +65,10 @@ Create an account           </label>
         </span>
         <br />
         <br />
-        <label class="govuk-heading-m" for="three-quarters">
-
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Create password
         </label>
-        
+
         <input
           className="govuk-input govuk-!-width-three-quarters"
           name="three-quarters"
@@ -83,7 +82,7 @@ Create an account           </label>
         <br />
         <br />
 
-        <label className="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Re-type your password
         </label>
         <input
@@ -98,15 +97,14 @@ Create an account           </label>
         <br />
         <br />
         <div id="event-name-hint" className="govuk-hint">
-        Must contain at least 8 characters with at least 1 capital letter, 1
-        lower case letter, 1 number and 1 symbol.
-      </div>
-      <div id="event-name-hint" className="govuk-hint">
-       Do not use your username, a
-        common word like 'password' or a sequence like '123'.
-      </div>
+          Must contain at least 8 characters with at least 1 capital letter, 1
+          lower case letter, 1 number and 1 symbol.
+        </div>
+        <div id="event-name-hint" className="govuk-hint">
+          Do not use your username, a common word like 'password' or a sequence
+          like '123'.
+        </div>
         <span
-        
           id="national-insurance-number-error"
           className="govuk-error-message"
         >

@@ -44,7 +44,7 @@ export default function ForgotPassword({ email, setEmail }) {
           Enter your email address to reset your password
         </label>
       </h2>
-      <label className="govuk-label" for="three-quarters">
+      <label className="govuk-label" htmlFor="three-quarters">
         Email Address
       </label>
       <input

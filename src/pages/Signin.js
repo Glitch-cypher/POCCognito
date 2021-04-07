@@ -57,7 +57,7 @@ export default function Login({ setTokens }) {
           <span className="govuk-visually-hidden">Error:</span> {emailErr}
         </span>
         <br />
-        <label className="govuk-heading-m" for="three-quarters">
+        <label className="govuk-heading-m" htmlFor="three-quarters">
           Password
         </label>
         <input
@@ -75,23 +75,7 @@ export default function Login({ setTokens }) {
         <span id="email-error" className="govuk-error-message">
           <span className="govuk-visually-hidden">Error:</span> {err}
         </span>
-        <details className="govuk-details" data-module="govuk-details">
-          <summary className="govuk-details__summary">
-            <span className="govuk-details__summary-text">
-              Problem Signing in?
-            </span>
-          </summary>
-          <div className="govuk-details__text">
-            <li className="govuk-header__navigation-item">
-              <a
-                className="govuk-header__navigation-item"
-                href="/forgotpassword"
-              >
-                Forgotten your password?
-              </a>
-            </li>
-          </div>
-        </details>
+
         <button
           className="govuk-button"
           data-module="govuk-button"

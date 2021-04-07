@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function Confirmation({ pageInfo }) {
-  {
-    /* takes in an object like the one below:
+  /* takes in an object like the one below:
     
    const pageInfo = {
     boxTitle: "Application complete",
@@ -13,11 +12,11 @@ export default function Confirmation({ pageInfo }) {
       "We have sent you a confirmation email, with a verification link inside.",
     line2:
       "To activate your account, click the link within the email. Once this is confirmed you can log in with your email address and password.",
-  };
+  ;
   
 */
-    console.log(pageInfo.boxImportantInfo);
-  }
+  console.log(pageInfo.boxImportantInfo);
+
   return (
     <div>
       <div className="govuk-grid-row">

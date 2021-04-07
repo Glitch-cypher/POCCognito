@@ -4,7 +4,7 @@ export default function NavBar({ tokens }) {
   return (
     <div>
       <nav>
-        {/* <ul
+        <ul
           id="navigation"
           className="govuk-header__navigation "
           aria-label="Navigation menu"
@@ -22,8 +22,8 @@ export default function NavBar({ tokens }) {
                   }}
                   className="govuk-header__link"
                   href="/"
-                >sin
-                  Sign in
+                >
+                  sin Sign in
                 </a>
               </li>
               <li
@@ -39,7 +39,7 @@ export default function NavBar({ tokens }) {
               </li>
             </div>
           ) : null}
-        </ul> */}
+        </ul>
       </nav>
     </div>
   );

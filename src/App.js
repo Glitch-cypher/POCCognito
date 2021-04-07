@@ -26,7 +26,6 @@ export default function App() {
   const [open, setOpen] = useState(true);
   useEffect(() => {
     getSession().then((session) => {
-      console.log(session);
       setTokens(session);
     });
   }, []);
