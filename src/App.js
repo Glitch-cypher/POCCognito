@@ -24,8 +24,8 @@ export default function App() {
   const { getSession } = useContext(AccountContext);
   const [tokens, setTokens] = useState();
   const [email, setEmail] = useState();
-  // ls.set("open", true);
-  const [open, setOpen] = useState(ls.get("open"));
+  const [open, setOpen] = useState(ls.get("openCookieBanner"));
+  console.log(ls.get("openCookieBanner"));
   useEffect(() => {
     getSession().then((session) => {
       setTokens(session);

@@ -46,7 +46,7 @@ export default function Header({ tokens, setTokens }) {
             Service name
           </a> */}
           {tokens ? <Status tokens={tokens} setTokens={setTokens} /> : null}
-          <NavBar tokens={tokens} />
+          {/* <NavBar tokens={tokens} /> */}
         </div>
       </div>
     </header>

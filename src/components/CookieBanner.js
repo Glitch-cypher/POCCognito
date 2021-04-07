@@ -2,7 +2,7 @@ import Drawer from "@material-ui/core/Drawer";
 
 export default function CookieBanner({ serviceName, open, setOpen, ls }) {
   return (
-    <Drawer open={open} anchor="top">
+    <Drawer open={open === null} anchor="top">
       <div
         className="govuk-cookie-banner "
         role="region"
@@ -34,7 +34,7 @@ export default function CookieBanner({ serviceName, open, setOpen, ls }) {
               data-module="govuk-button"
               onClick={() => {
                 setOpen(false);
-                ls.set("open", false);
+                ls.set("openCookieBanner", false);
               }}
             >
               Accept analytics cookies
@@ -48,7 +48,7 @@ export default function CookieBanner({ serviceName, open, setOpen, ls }) {
               onClick={() => {
                 setOpen(false);
 
-                ls.set("open", false);
+                ls.set("openCookieBanner", false);
               }}
             >
               Reject analytics cookies
